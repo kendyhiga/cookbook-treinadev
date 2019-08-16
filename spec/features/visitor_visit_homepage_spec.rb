@@ -5,7 +5,8 @@ feature 'Visitor visit homepage' do
     visit root_path
 
     expect(page).to have_css('h1', text: 'CookBook')
-    expect(page).to have_css('p', text: 'Bem-vindo ao maior livro de receitas online')
+    expect(page).to have_css('p', text: 'Bem-vindo ao maior livro de receitas'\
+                                        ' online')
   end
 
   scenario 'and view recipe' do
