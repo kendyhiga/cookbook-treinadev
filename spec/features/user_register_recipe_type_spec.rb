@@ -29,4 +29,18 @@ feature 'User register recipe_type' do
     # Assert
     expect(page).to have_content('Não foi possível salvar o tipo de receita')
   end
+
+  scenario 'and the name should be unique' do
+    # Arrange
+    RecipeType.create(name: 'Salada')
+
+    # Act
+    visit root_path
+    click_on 'Enviar um tipo de receita'
+    fill_in 'Nome', with: 'Salada'
+    click_on 'Enviar'
+
+    # Assert
+    expect(page).to have_content('Não foi possível salvar o tipo de receita')
+  end
 end
