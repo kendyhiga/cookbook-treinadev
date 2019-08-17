@@ -1,3 +1,7 @@
+<% if @recipe_type.errors.any? %>
+  <%= flash[:failure] %>
+<% end %>
+
 <%= form_for @recipe_type do |f| %>
 
   <%= f.label :name, 'Nome' %>

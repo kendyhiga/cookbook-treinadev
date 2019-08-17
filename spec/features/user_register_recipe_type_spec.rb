@@ -16,4 +16,17 @@ feature 'User register recipe_type' do
     # Assert
     expect(page).to have_css('h1', text: 'Aperitivo')
   end
+
+  scenario 'and must fill in all fields' do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on 'Enviar um tipo de receita'
+    fill_in 'Nome', with: ''
+    click_on 'Enviar'
+
+    # Assert
+    expect(page).to have_content('Não foi possível salvar o tipo de receita')
+  end
 end

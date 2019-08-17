@@ -7,8 +7,9 @@ class RecipeTypesController < ApplicationController
     @recipe_type = RecipeType.new(recipe_type_params)
     if @recipe_type.save
       redirect_to @recipe_type
-    else      
-      render :edit
+    else
+      flash.now[:failure] = 'Não foi possível salvar o tipo de receita'
+      render :new
     end
   end
 
