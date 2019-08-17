@@ -1,8 +1,8 @@
-<% if @recipe_type.errors.any? %>
+<% if @cuisine.errors.any? %>
   <%= flash[:failure] %>
 <% end %>
 
-<%= form_for @recipe_type do |f| %>
+<%= form_for @cuisine do |f| %>
 
   <%= f.label :name, 'Nome' %>
   <%= f.text_field :name %>

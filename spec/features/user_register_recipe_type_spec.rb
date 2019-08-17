@@ -3,15 +3,13 @@ require 'rails_helper'
 feature 'User register recipe_type' do
   scenario 'sucessfully' do
     # Arrange
-    RecipeType.create(name: 'Massa')
-    RecipeType.create(name: 'Salada')
 
     # Act
     visit root_path
-    click_on 'Enviar um tipo de receita'
+    click_on 'Cadastrar um tipo de receita'
 
     fill_in 'Nome', with: 'Aperitivo'
-    click_on 'Enviar'
+    click_on 'Cadastrar'
 
     # Assert
     expect(page).to have_css('h1', text: 'Aperitivo')
@@ -22,9 +20,9 @@ feature 'User register recipe_type' do
 
     # Act
     visit root_path
-    click_on 'Enviar um tipo de receita'
+    click_on 'Cadastrar um tipo de receita'
     fill_in 'Nome', with: ''
-    click_on 'Enviar'
+    click_on 'Cadastrar'
 
     # Assert
     expect(page).to have_content('Não foi possível salvar o tipo de receita')
@@ -36,9 +34,9 @@ feature 'User register recipe_type' do
 
     # Act
     visit root_path
-    click_on 'Enviar um tipo de receita'
+    click_on 'Cadastrar um tipo de receita'
     fill_in 'Nome', with: 'Salada'
-    click_on 'Enviar'
+    click_on 'Cadastrar'
 
     # Assert
     expect(page).to have_content('Não foi possível salvar o tipo de receita')
