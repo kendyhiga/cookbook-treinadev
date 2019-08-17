@@ -16,6 +16,19 @@ class RecipesController < ApplicationController
     redirect_to @recipe if @recipe.save
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if  @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      render flash[:failure]
+    end
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(:title, :recipe_type, :cuisine, :difficulty, :cook_time, :ingredients, :cook_method)
