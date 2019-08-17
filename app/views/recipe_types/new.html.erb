@@ -1,0 +1,9 @@
+<%= form_for @recipe_type do |f| %>
+
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit 'Enviar' %>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>
