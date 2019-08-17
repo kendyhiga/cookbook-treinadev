@@ -8,7 +8,7 @@ class CuisinesController < ApplicationController
     if @cuisine.save
       redirect_to @cuisine
     else
-      flash.now[:failure] = 'Não foi possível salvar o tipo de receita'
+      flash.now[:failure] = 'Não foi possível salvar a cozinha'
       render :new
     end
   end
