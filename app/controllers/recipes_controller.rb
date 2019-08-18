@@ -1,22 +1,18 @@
 class RecipesController < ApplicationController
+  before_action :find_recipe, only: %w[show edit update]
+  before_action :find_references, only: %w[new create edit update]
   def index
     @recipes = Recipe.all
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
+  def show; end
 
   def new
     @recipe = Recipe.new
-    @recipe_types = RecipeType.all
-    @cuisines = Cuisine.all
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe_types = RecipeType.all
-    @cuisines = Cuisine.all
     if @recipe.save
       redirect_to @recipe
     else
@@ -25,17 +21,10 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-    @recipe = Recipe.find(params[:id])
-    @recipe_types = RecipeType.all
-    @cuisines = Cuisine.all
-  end
+  def edit; end
 
   def update
-    @recipe = Recipe.find(params[:id])
-    @recipe_types = RecipeType.all
-    @cuisines = Cuisine.all
-    if  @recipe.update(recipe_params)
+    if @recipe.update(recipe_params)
       redirect_to @recipe
     else
       flash.now[:failure] = 'Não foi possível salvar a receita'
@@ -44,7 +33,19 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id, :difficulty, :cook_time, :ingredients, :cook_method)
+    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id,
+                                   :difficulty, :cook_time, :ingredients,
+                                   :cook_method)
+  end
+
+  def find_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def find_references
+    @recipe_types = RecipeType.all
+    @cuisines = Cuisine.all
   end
 end
