@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %w[show edit update]
-  before_action :find_references, only: %w[new create edit update]
+  before_action :find_recipe, only: %i[show edit update]
+  before_action :find_references, only: %i[new create edit update]
   def index
     @recipes = Recipe.all
   end
