@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show edit update]
-  before_action :find_references, only: %i[new create edit update]
+  before_action :find_references, only: %i[new edit]
   def index
     @recipes = Recipe.all
   end
@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       flash.now[:failure] = 'Não foi possível salvar a receita'
+      find_references
       render :new
     end
   end
@@ -28,12 +29,20 @@ class RecipesController < ApplicationController
       redirect_to @recipe
     else
       flash.now[:failure] = 'Não foi possível salvar a receita'
+      find_references
       render :edit
     end
   end
 
   def search
-    @recipes = Recipe.where('title LIKE ?', params[:title])
+    if params[:title] == ''
+      flash.now[:failure] = 'Preencha o campo de pesquisa'
+    else
+      @recipes = Recipe.where('title LIKE ?', params[:title])
+      if @recipes.empty? && params[:title]
+        flash.now[:failure] = 'Não encontramos nenhuma receita'
+      end
+    end
     render :search
   end
 
