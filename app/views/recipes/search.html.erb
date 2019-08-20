@@ -1,0 +1,11 @@
+<h1>Pesquisar receita</h1>
+
+<%= form_tag search_recipes_path, method: 'get' do %>
+  <%= label_tag :title, 'Titulo:' %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
+<% @recipes.each do |recipe| %>
+  <h1><%= recipe.title %></h1>
+<% end %>
