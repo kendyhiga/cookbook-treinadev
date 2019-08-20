@@ -38,9 +38,11 @@ class RecipesController < ApplicationController
     if params[:title] == ''
       flash.now[:failure] = 'Preencha o campo de pesquisa'
     else
-      @recipes = Recipe.where('title LIKE ?', params[:title])
-      if @recipes.empty? && params[:title]
-        flash.now[:failure] = 'Não encontramos nenhuma receita'
+      if params[:title]
+        @recipes = Recipe.where('title LIKE ?', "%#{params[:title]}%")
+        if @recipes.empty? && params[:title]
+          flash.now[:failure] = 'Não encontramos nenhuma receita'
+        end
       end
     end
     render :search

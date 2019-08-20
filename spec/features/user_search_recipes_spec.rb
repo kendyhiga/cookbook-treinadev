@@ -23,14 +23,14 @@ feature 'User search for recipes' do
     expect(page).not_to have_content('Bolo de cenoura')
   end
 
-  scenario 'user must fill title field to search' do
+  scenario 'and must fill title field to search' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    
+
     visit root_path
     click_on 'Pesquisar receita'
     fill_in 'Titulo:', with: 'Bolo de fubá'
@@ -41,14 +41,14 @@ feature 'User search for recipes' do
     expect(page).to have_content('Não encontramos nenhuma receita')
   end
 
-  scenario 'user search unexistant recipe and none is shown' do
+  scenario 'by unexistant recipe and none is shown' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    
+
     visit root_path
     click_on 'Pesquisar receita'
     fill_in 'Titulo:', with: ''
@@ -57,5 +57,37 @@ feature 'User search for recipes' do
     expect(page).not_to have_content('Resultados da busca:')
     expect(page).not_to have_content('Bolo de cenoura')
     expect(page).to have_content('Preencha o campo de pesquisa')
+  end
+
+  scenario 'by its partial name and can show more than one result' do
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de Fubá', difficulty: 'Médio',
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    Recipe.create(title: 'Bolo de Chocolate', difficulty: 'Médio',
+                      recipe_type: recipe_type, cuisine: cuisine,
+                      cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                      cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                      Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
+                        recipe_type: recipe_type, cuisine: cuisine,
+                        cook_time: 50, ingredients: 'Farinha, açucar, queijo',
+                        cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes')
+
+    visit root_path
+    click_on 'Pesquisar receita'
+    fill_in 'Titulo:', with: 'Bolo'
+    click_on 'Pesquisar'
+
+    expect(page).to have_content('Resultados da busca:')
+    expect(page).to have_css('ul', text: 'Bolo de cenoura')
+    expect(page).to have_css('ul', text: 'Bolo de Fubá')
+    expect(page).to have_css('ul', text: 'Bolo de Chocolate')
+    expect(page).not_to have_content('Pão de Queijo')
   end
 end
