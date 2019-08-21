@@ -5,11 +5,13 @@ feature 'Visitor view recipe details' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
+    user = User.create(email: 'alan@email.com', password: '123456')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -17,6 +19,7 @@ feature 'Visitor view recipe details' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
+    expect(page).to have_css('h2', text: 'Enviado por alan@email.com')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: recipe.recipe_type.name)
     expect(page).to have_css('p', text: recipe.cuisine.name)
@@ -32,11 +35,14 @@ feature 'Visitor view recipe details' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
+    user = User.create(email: 'alan@email.com', password: '123456')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços
+                           pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
     # simula a ação do usuário
     visit root_path

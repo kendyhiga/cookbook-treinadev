@@ -4,14 +4,17 @@ feature 'User search for recipes' do
   scenario 'sucessfully by its exact name' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
     Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
                     recipe_type: recipe_type, cuisine: cuisine,
                     cook_time: 50, ingredients: 'Farinha, açucar, queijo',
-                    cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                    cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                    user: user)
 
     visit root_path
     click_on 'Pesquisar receita'
@@ -26,10 +29,12 @@ feature 'User search for recipes' do
   scenario 'and must fill title field to search' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
 
     visit root_path
     click_on 'Pesquisar receita'
@@ -44,10 +49,12 @@ feature 'User search for recipes' do
   scenario 'by unexistant recipe and none is shown' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
 
     visit root_path
     click_on 'Pesquisar receita'
@@ -62,22 +69,27 @@ feature 'User search for recipes' do
   scenario 'by its partial name and can show more than one result' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
     Recipe.create(title: 'Bolo de Fubá', difficulty: 'Médio',
                     recipe_type: recipe_type, cuisine: cuisine,
                     cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                    user: user)
     Recipe.create(title: 'Bolo de Chocolate', difficulty: 'Médio',
                       recipe_type: recipe_type, cuisine: cuisine,
                       cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                      cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-                      Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
+                      cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                      user: user)
+    Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
                         recipe_type: recipe_type, cuisine: cuisine,
                         cook_time: 50, ingredients: 'Farinha, açucar, queijo',
-                        cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                        cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                        user: user)
 
     visit root_path
     click_on 'Pesquisar receita'

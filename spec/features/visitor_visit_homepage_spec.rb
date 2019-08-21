@@ -12,11 +12,13 @@ feature 'Visitor visit homepage' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
+    user = User.create(email: 'alan@email.com', password: '123456')
     recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                            recipe_type: recipe_type, cuisine: cuisine,
                            cook_time: 50,
                            ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
     # simula a ação do usuário
     visit root_path
@@ -33,20 +35,23 @@ feature 'Visitor visit homepage' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
+    user = User.create(email: 'alan@email.com', password: '123456')
     another_recipe_type = RecipeType.create(name: 'Prato principal')
     another_cuisine = Cuisine.create(name: 'Francesa')
     recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                            recipe_type: recipe_type, cuisine: cuisine,
                            cook_time: 50,
                            ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                           user: user)
 
     another_recipe = Recipe.create(title: 'Feijoada',
                                    recipe_type: another_recipe_type,
                                    cuisine: another_cuisine, difficulty: 'Difícil',
                                    cook_time: 90,
                                    ingredients: 'Feijão e carnes',
-                                   cook_method: 'Misture o feijão com as carnes')
+                                   cook_method: 'Misture o feijão com as carnes',
+                                   user: user)
 
     # simula a ação do usuário
     visit root_path

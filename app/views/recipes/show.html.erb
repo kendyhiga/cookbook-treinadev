@@ -1,6 +1,6 @@
 <h1><%= @recipe.title %></h1>
 <%= link_to 'Editar', edit_recipe_path %>
-
+<h2><%= "Enviado por #{@recipe.user.email}" %></h2>
 <h3>Detalhes</h3>
 
 <p>Tipo da receita:</p>

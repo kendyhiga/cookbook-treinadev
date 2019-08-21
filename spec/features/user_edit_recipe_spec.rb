@@ -4,13 +4,14 @@ feature 'User update recipe' do
   scenario 'successfully' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     RecipeType.create(name: 'Entrada')
     Recipe.create(title: 'Bolodecenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    User.create(email: 'alan@email.com', password: '123456')
-
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
+    
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
@@ -39,11 +40,12 @@ feature 'User update recipe' do
   scenario 'and must fill in all fields' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
     Recipe.create(title: 'Bolodecenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
-    User.create(email: 'alan@email.com', password: '123456')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  user: user)
 
     visit root_path
     click_on 'Entrar'
