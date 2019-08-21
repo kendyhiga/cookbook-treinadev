@@ -51,6 +51,11 @@ class RecipesController < ApplicationController
     render :search
   end
 
+  def my_recipes
+    @recipes = Recipe.where(user: current_user)
+    flash.now[:failure] = 'Você não tem nenhuma receita cadastrada em nosso site'
+  end
+
   private
 
   def recipe_params

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :cuisines, only: %i[show new create]
 
   get 'search/recipes', to: 'recipes#search'
+  get 'user/my_recipes', to: 'recipes#my_recipes', as: 'my_recipes'
 end
