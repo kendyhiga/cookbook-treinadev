@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show edit update]
   before_action :find_references, only: %i[new edit]
+  before_action :authenticate_user!, except: %i[index show search]
+
   def index
     @recipes = Recipe.all
   end

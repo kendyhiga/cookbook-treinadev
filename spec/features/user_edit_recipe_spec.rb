@@ -9,9 +9,13 @@ feature 'User update recipe' do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    User.create(email: 'alan@email.com', password: '123456')
 
-    # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
     click_on 'Bolodecenoura'
     click_on 'Editar'
 
@@ -39,12 +43,16 @@ feature 'User update recipe' do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+    User.create(email: 'alan@email.com', password: '123456')
 
-    # simula a ação do usuário
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+
     click_on 'Bolodecenoura'
     click_on 'Editar'
-
     fill_in 'Título', with: ''
     fill_in 'Dificuldade', with: ''
     fill_in 'Tempo de Preparo', with: ''
