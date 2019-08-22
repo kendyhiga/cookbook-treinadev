@@ -6,18 +6,19 @@ feature 'User update recipe' do
     cuisine = Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'alan@email.com', password: '123456')
     RecipeType.create(name: 'Entrada')
-    Recipe.create(title: 'Bolodecenoura', difficulty: 'Médio',
+    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                                misture com o restante dos ingredientes',
                   user: user)
-    
+
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
-    click_on 'Bolodecenoura'
+    click_on 'Bolo de cenoura'
     click_on 'Editar'
 
     fill_in 'Título', with: 'Bolo de cenoura'
@@ -33,7 +34,7 @@ feature 'User update recipe' do
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Médio')
     expect(page).to have_css('p', text: '45 minutos')
-    expect(page).to have_css('p', text:  'Cenoura, farinha, ovo, oleo de soja e chocolate')
+    expect(page).to have_css('p', text: 'Cenoura, farinha, ovo, oleo de soja e chocolate')
     expect(page).to have_css('p', text: 'Faça um bolo e uma cobertura de chocolate')
   end
 
@@ -41,10 +42,11 @@ feature 'User update recipe' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'alan@email.com', password: '123456')
-    Recipe.create(title: 'Bolodecenoura', difficulty: 'Médio',
+    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                                misture com o restante dos ingredientes',
                   user: user)
 
     visit root_path
@@ -53,7 +55,7 @@ feature 'User update recipe' do
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
 
-    click_on 'Bolodecenoura'
+    click_on 'Bolo de cenoura'
     click_on 'Editar'
     fill_in 'Título', with: ''
     fill_in 'Dificuldade', with: ''
@@ -63,5 +65,66 @@ feature 'User update recipe' do
     click_on 'Enviar'
 
     expect(page).to have_content('Não foi possível salvar a receita')
+  end
+
+  scenario 'and must be logged in' do
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
+    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                                misture com o restante dos ingredientes',
+                  user: user)
+
+    visit root_path
+    click_on 'Bolo de cenoura'
+
+    expect(page).not_to have_content('Editar')
+  end
+
+  scenario 'and must be the owner' do
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
+    another_user = User.create(email: 'john.doe@email.com', password: '123456')
+    Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                                misture com o restante dos ingredientes',
+                  user: another_user)
+
+    visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    click_on 'Bolo de cenoura'
+
+    expect(page).not_to have_content('Editar')
+  end
+
+  scenario 'and cannot access de edit recipe url if he is not the owner' do
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
+    another_user = User.create(email: 'john.doe@email.com', password: '123456')
+    recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                                misture com o restante dos ingredientes',
+                  user: another_user)
+
+    visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    visit edit_recipe_path(recipe.id)
+
+    expect(current_path).to eq root_path
   end
 end

@@ -25,7 +25,9 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    redirect_to root_path if @recipe.user != current_user
+  end
 
   def update
     if @recipe.update(recipe_params)

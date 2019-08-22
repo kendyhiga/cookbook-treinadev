@@ -1,21 +1,25 @@
 <h1><%= @recipe.title %></h1>
-<%= link_to 'Editar', edit_recipe_path %>
+
+<% if current_user == @recipe.user %>
+  <%= link_to 'Editar', edit_recipe_path %>
+<% end %>
+
 <h2><%= "Enviado por #{@recipe.user.email}" %></h2>
 <h3>Detalhes</h3>
 
 <p>Tipo da receita:</p>
 <p><%= @recipe.recipe_type.name %></p>
-<p>Cozinha</p>
+<p>Cozinha:</p>
 <p><%= @recipe.cuisine.name %></p>
-<p>Dificuldade</p>
+<p>Dificuldade:</p>
 <p><%= @recipe.difficulty %></p>
-<p>Tempo de preparo</p>
+<p>Tempo de preparo:</p>
 <p><%= @recipe.cook_time_min %></p>
 
-<h3>Ingredientes</h3>
+<h3>Ingredientes:</h3>
 <p><%= @recipe.ingredients %></p>
 
-<h3>Como Preparar</h3>
+<h3>Como Preparar:</h3>
 <p><%= @recipe.cook_method %></p>
 
 <%= link_to 'Voltar', root_path %>
