@@ -87,7 +87,7 @@ feature 'User update recipe' do
   scenario 'and must be the owner' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
-    user = User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456')
     another_user = User.create(email: 'john.doe@email.com', password: '123456')
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
@@ -109,7 +109,7 @@ feature 'User update recipe' do
   scenario 'and cannot access de edit recipe url if he is not the owner' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
-    user = User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456')
     another_user = User.create(email: 'john.doe@email.com', password: '123456')
     recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,

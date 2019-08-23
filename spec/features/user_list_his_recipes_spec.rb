@@ -46,7 +46,7 @@ feature 'User can list his recipes' do
 
   scenario 'and receives a message if he doesnt have any recipe' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456')
 
     # Act
     visit root_path

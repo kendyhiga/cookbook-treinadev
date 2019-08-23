@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :cuisines, only: %i[show new create]
 
   get 'search/recipes', to: 'recipes#search'
-  get 'user/my_recipes', to: 'recipes#my_recipes', as: 'my_recipes'
+  get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
+  get 'user/my_lists', to: 'users#my_lists', as: 'my_lists'
 end

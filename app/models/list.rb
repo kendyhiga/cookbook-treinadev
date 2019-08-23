@@ -3,4 +3,5 @@ class List < ApplicationRecord
   has_many :recipe_lists
   has_many :recipes, through: :recipe_lists
   
+  validates :name, presence: true
 end

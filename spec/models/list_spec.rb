@@ -23,7 +23,6 @@ RSpec.describe List, type: :model do
                              misture com o restante dos ingredientes',
                user: user)
       list = List.create!(name: 'Receitas favoritas', user: user)
-      other_list = List.create!(name: 'Receitas Vegetarianas', user: user)
 
       RecipeList.create!(recipe: recipe, list: list)
       RecipeList.create!(recipe: other_recipe, list: list)
