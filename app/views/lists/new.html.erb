@@ -1,0 +1,15 @@
+<h1>Cadastrar nova lista</h1>
+
+<% if @list.errors.any? %>
+  <%= flash[:failure] %>
+<% end %>
+
+<%= form_for @list do |f| %>
+
+  <%= f.label :name, 'Nome' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit 'Cadastrar' %>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>
