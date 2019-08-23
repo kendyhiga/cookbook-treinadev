@@ -10,7 +10,7 @@ class ListsController < ApplicationController
       flash[:notice] = 'Lista cadastrada com sucesso'
       redirect_to @list
     else
-      flash.now[:failure] = 'Não foi possível salvar o tipo de receita'
+      flash.now[:failure] = 'Não foi possível salvar a lista'
       render :new
     end
   end

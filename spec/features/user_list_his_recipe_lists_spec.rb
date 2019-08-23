@@ -7,7 +7,6 @@ feature 'User can list his recipe lists' do
     another_user = User.create(email: 'john.doe@email.com', password: '123456')
     List.create!(name: 'Receitas favoritas', user: user)
     List.create!(name: 'Receitas Vegetarianas', user: user)
-    List.create!(name: 'Receitas Vegetarianas', user: user)
     List.create!(name: 'Receitas Veganas', user: another_user)
 
     # Act
