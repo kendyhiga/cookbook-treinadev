@@ -7,7 +7,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def show; end
+  def show
+    @user = current_user
+    @lists = List.where(user: current_user)
+    @list = List.new
+  end
 
   def new
     @recipe = Recipe.new

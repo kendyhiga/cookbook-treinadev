@@ -2,7 +2,7 @@
 
 <% if @recipes.any? %>
   <% @recipes.each do |recipe| %>
-    <ul><%= recipe.title %></ul>
+    <ul><%= link_to recipe.title, recipe %></ul>
   <% end %>
 <% else %>
   <%= flash[:failure] %>

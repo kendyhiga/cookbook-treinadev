@@ -2,7 +2,7 @@
 
 <% if @lists.any? %>
   <% @lists.each do |list| %>
-    <ul><%= list.name %></ul>
+    <ul><%= link_to list.name, list %></ul>
   <% end %>
 <% else %>
   <%= flash[:failure] %>

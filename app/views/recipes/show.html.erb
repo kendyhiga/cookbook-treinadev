@@ -4,6 +4,15 @@
   <%= link_to 'Editar', edit_recipe_path %>
 <% end %>
 
+<% if user_signed_in? && @user.lists.any? %>
+  <%= form_for add_recipe_to_list_path do |f| %>
+    <p><%= f.label :name, 'Adicionar para a minha lista:' %></p>
+    <p><%= f.collection_select :name, @lists, :id, :name %></p>
+
+    <p><%= f.submit 'Adicionar' %></p>
+  <% end %>
+<% end %>
+
 <h2><%= "Enviado por #{@recipe.user.email}" %></h2>
 <h3>Detalhes</h3>
 
