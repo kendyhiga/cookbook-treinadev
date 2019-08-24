@@ -22,6 +22,7 @@ feature 'User can remove recipes from list' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Minhas listas'
     click_on 'Receitas favoritas'
     click_on 'Remover da lista'

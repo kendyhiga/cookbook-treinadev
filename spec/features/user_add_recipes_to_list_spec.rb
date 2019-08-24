@@ -23,6 +23,7 @@ feature 'User can add recipes to his list' do
     click_on 'Bolo de cenoura'
     select 'Receitas favoritas', from: 'Adicionar para a minha lista:'
     click_on 'Adicionar'
+    click_on 'Meu perfil'
     click_on 'Minhas listas'
     click_on 'Receitas favoritas'
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User register recipe lists' do
   scenario 'successfully' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
 
     # Act
     visit root_path
@@ -11,6 +11,7 @@ feature 'User register recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Cadastrar lista'
     fill_in 'Nome', with: 'Receitas Natalinas'
     click_on 'Cadastrar'
@@ -21,7 +22,7 @@ feature 'User register recipe lists' do
 
   scenario 'and must fill in all fields' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
 
     # Act
     visit root_path
@@ -29,6 +30,7 @@ feature 'User register recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Cadastrar lista'
     fill_in 'Nome', with: ''
     click_on 'Cadastrar'
@@ -39,7 +41,7 @@ feature 'User register recipe lists' do
 
   scenario 'and the list name must be unique' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456')
+    user = User.create(email: 'alan@email.com', password: '123456', role: 'admin')
     List.create!(name: 'Receitas favoritas', user: user)
 
     # Act
@@ -48,6 +50,7 @@ feature 'User register recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Cadastrar lista'
     fill_in 'Nome', with: 'Receitas favoritas'
     click_on 'Cadastrar'
@@ -61,7 +64,7 @@ feature 'User register recipe lists' do
     other_user = User.create(email: 'email@email.com', password: '123456')
     List.create!(name: 'Receitas favoritas', user: other_user)
 
-    User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
 
     # Act
     visit root_path
@@ -69,6 +72,7 @@ feature 'User register recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Cadastrar lista'
     fill_in 'Nome', with: 'Receitas favoritas'
     click_on 'Cadastrar'

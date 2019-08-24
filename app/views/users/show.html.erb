@@ -1,0 +1,7 @@
+
+<% if current_user.role == 'admin' %>
+  <%= link_to 'Cadastrar tipo de receita', new_recipe_type_path %>
+  <%= link_to 'Cadastrar cozinha', new_cuisine_path %>
+<% end %>
+<%= link_to 'Minhas listas', my_lists_path %>
+<%= link_to 'Cadastrar lista', new_list_path %>

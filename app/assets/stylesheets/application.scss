@@ -23,6 +23,53 @@ button {
    margin-left: 10px;
  }
 
+ .nav-bar-link{
+  background-color: rgb(215, 215, 215);
+
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+ }
+
+ .nav-bar-link-left{
+  background-color: rgb(215, 215, 215);
+
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+  padding-left: 12px;
+ }
+
+ .nav-bar-link-right{
+  background-color: rgb(215, 215, 215);
+
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+  padding-right: 12px;
+ }
+
+ a:hover.nav-bar-link{
+  background-color: black;
+  color: white;
+ }
+
  .side-menu-topic {
   margin-left: 10px;
   margin-top: 15px;

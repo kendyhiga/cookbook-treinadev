@@ -13,7 +13,9 @@ feature 'User is able to log in' do
     click_on 'Logar'
 
     # Assert
-    expect(page).to have_content("Você esta logado como: alan@email.com")
+    expect(page).to have_content('Minhas receitas')
+    expect(page).to have_content('Cadastrar receita')
+    expect(page).to have_content('Meu perfil')
     expect(page).to have_content('Sair')
     expect(page).not_to have_content('Entrar')
   end

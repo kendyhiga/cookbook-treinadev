@@ -3,10 +3,16 @@ require 'rails_helper'
 feature 'User register recipe_type' do
   scenario 'sucessfully' do
     # Arrange
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
 
     # Act
     visit root_path
-    click_on 'Cadastrar um tipo de receita'
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    click_on 'Meu perfil'
+    click_on 'Cadastrar tipo de receita'
 
     fill_in 'Nome', with: 'Aperitivo'
     click_on 'Cadastrar'
@@ -17,10 +23,16 @@ feature 'User register recipe_type' do
 
   scenario 'and must fill in all fields' do
     # Arrange
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
 
     # Act
     visit root_path
-    click_on 'Cadastrar um tipo de receita'
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    click_on 'Meu perfil'
+    click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: ''
     click_on 'Cadastrar'
 
@@ -30,11 +42,17 @@ feature 'User register recipe_type' do
 
   scenario 'and the name should be unique' do
     # Arrange
+    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
     RecipeType.create(name: 'Salada')
 
     # Act
     visit root_path
-    click_on 'Cadastrar um tipo de receita'
+    click_on 'Entrar'
+    fill_in 'Email', with: 'alan@email.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    click_on 'Meu perfil'
+    click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: 'Salada'
     click_on 'Cadastrar'
 

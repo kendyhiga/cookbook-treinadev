@@ -1,7 +1,9 @@
 <% @recipes.each do |recipe| %>
   <div class='col-6'>
-    <h1><%= link_to recipe.title, recipe %></h1>
     <%= image_tag recipe.image if recipe.image.attached? %>
+  </div>
+  <div class='col-6'>
+    <h1><%= link_to recipe.title, recipe %></h1>
     <ul>
       <li><%= recipe.recipe_type.name %></li>
       <li><%= recipe.cuisine.name %></li>

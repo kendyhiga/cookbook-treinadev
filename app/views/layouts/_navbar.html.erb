@@ -8,15 +8,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <%= "Você esta logado como: #{current_user.email}" if user_signed_in? %>
-            <%= link_to 'Início', root_path %>
+            <%= link_to 'Início', root_path, class: 'nav-bar-link-left'%>
           </button>
           <% if user_signed_in? %>
-              <%= link_to 'Minhas receitas', my_recipes_path %>
-              <%= link_to 'Minhas listas', my_lists_path %>
-              <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+            <%= link_to 'Minhas receitas', my_recipes_path, class: 'nav-bar-link'%>
+            <%= link_to 'Cadastrar receita', new_recipe_path, class: 'nav-bar-link'%>
+            <%= link_to 'Meu perfil', current_user, class: 'nav-bar-link'%>
+            <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-bar-link-right'%>
           <% else %>
-              <%= link_to 'Entrar', new_user_session_path %>
+            <%= link_to 'Entrar', new_user_session_path, class: 'nav-bar-link-right'%>
           <% end %>
         </ul>
       </div>

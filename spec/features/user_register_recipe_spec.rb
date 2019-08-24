@@ -16,7 +16,7 @@ feature 'User register recipe' do
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
 
-    click_on 'Enviar uma receita'
+    click_on 'Cadastrar receita'
     fill_in 'Título', with: 'Tabule'
     select 'Entrada', from: 'Tipo da Receita'
     select 'Arabe', from: 'Cozinha'
@@ -25,7 +25,6 @@ feature 'User register recipe' do
     fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
     fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
     click_on 'Enviar'
-
 
     # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
@@ -50,8 +49,7 @@ feature 'User register recipe' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
-
-    click_on 'Enviar uma receita'
+    click_on 'Cadastrar receita'
 
     fill_in 'Título', with: ''
     fill_in 'Dificuldade', with: ''
@@ -66,10 +64,8 @@ feature 'User register recipe' do
   scenario 'and must be logged in' do
     # Act
     visit root_path
-    click_on 'Enviar uma receita'
 
     # Assert
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
     expect(page).not_to have_css('h1', text: 'Cadastrar nova receita')
   end
 end

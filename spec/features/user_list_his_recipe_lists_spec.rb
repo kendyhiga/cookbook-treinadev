@@ -15,6 +15,7 @@ feature 'User can list his recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Minhas listas'
 
     # Assert
@@ -34,6 +35,7 @@ feature 'User can list his recipe lists' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
+    click_on 'Meu perfil'
     click_on 'Minhas listas'
 
     # Assert
