@@ -11,6 +11,15 @@ class RecipeListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_list = RecipeList.where(recipe: @recipe, list: @list)
+    RecipeList.delete(@recipe_list)
+    flash[:alert] = "Receita #{@recipe.title} foi removida da lista"
+    redirect_to @list
+  end
+
   private
 
   def recipe_list_params

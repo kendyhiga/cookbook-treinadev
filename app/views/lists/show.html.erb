@@ -1,7 +1,10 @@
 <h1><%= @list.name %></h1>
 
 <% @list.recipes.each do |recipe| %>
-  <ul><%= recipe.title %></ul>
+  <ul>
+    <%= link_to recipe.title, recipe %>
+    <%= link_to 'Remover da lista', remove_recipe_from_list_path(params[:id], recipe.id), method: :delete %>
+  </ul>
 <% end %>
 
 <%= link_to 'Voltar', root_path %>
