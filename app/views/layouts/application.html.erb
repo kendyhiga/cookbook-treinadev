@@ -11,15 +11,19 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    
     <div class="row">
+
       <div class="col-2">
         <%= render 'layouts/side_menu'%>
       </div>
+
       <div class="col">
         <%= flash[:notice] %>
         <%= flash[:alert] %>
         <%= yield %>
       </div>
+
     </div>
   </body>
 </html>

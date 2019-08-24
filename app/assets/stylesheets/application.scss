@@ -21,9 +21,9 @@ body {
 
 button {
    margin-left: 10px;
- }
+}
 
- .nav-bar-link{
+.nav-bar-link{
   background-color: rgb(215, 215, 215);
 
   border-left: 1px solid;
@@ -33,9 +33,13 @@ button {
   color: black;
   font-size: 16px;
   padding: 9px;
- }
+}
+a:hover.nav-bar-link{
+  background-color: black;
+  color: white;
+}
 
- .nav-bar-link-left{
+.nav-bar-link-left{
   background-color: rgb(215, 215, 215);
 
   border-left: 1px solid;
@@ -48,9 +52,13 @@ button {
   font-size: 16px;
   padding: 9px;
   padding-left: 12px;
- }
+}
+a:hover.nav-bar-link-left{
+  background-color: black;
+  color: white;
+}
 
- .nav-bar-link-right{
+.nav-bar-link-right{
   background-color: rgb(215, 215, 215);
 
   border-left: 1px solid;
@@ -63,18 +71,30 @@ button {
   font-size: 16px;
   padding: 9px;
   padding-right: 12px;
- }
-
- a:hover.nav-bar-link{
+}
+a:hover.nav-bar-link-right{
   background-color: black;
   color: white;
- }
+}
 
- .side-menu-topic {
+
+
+.side-menu-topic {
   margin-left: 10px;
   margin-top: 15px;
- }
+}
 
- .nav .side-menu-link {
+.nav.side-menu-link {
   margin-left: 20px;
- }
+}
+
+.small-recipe-img {
+  margin-bottom: 20px;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+
+a.link {
+  text-decoration: underline;
+}

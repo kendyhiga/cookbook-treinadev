@@ -4,7 +4,7 @@
     <ul class="nav flex-column">
       <li class="nav-item">
         <% RecipeType.all.each do |recipe_type| %>
-          <p class="side-menu-link"><%= link_to recipe_type.name, recipe_type %></p>
+          <p class="side-menu-link"><%= link_to recipe_type.name, recipe_type, class: 'link' %></p>
         <% end %>
       </li>
     </ul>
@@ -14,7 +14,7 @@
     <ul class="nav flex-column">
       <li class="nav-item">
         <% Cuisine.all.each do |cuisine| %>
-          <p class="side-menu-link"><%= link_to cuisine.name, cuisine %></p>
+          <p class="side-menu-link"><%= link_to cuisine.name, cuisine, class: 'link' %></p>
         <% end %>
       </li>
     </ul>
