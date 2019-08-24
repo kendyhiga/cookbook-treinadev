@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
             :cook_time, :ingredients, :cook_method,
             presence: true
 
+  accepts_nested_attributes_for :recipe_lists
+
   def cook_time_min
     "#{cook_time} minutos"
   end

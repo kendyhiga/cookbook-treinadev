@@ -6,8 +6,8 @@
   <p><%= f.label :title, 'Título' %></p>
   <p><%= f.text_field :title %></p>
 
-  <p><%= f.label :recipe_type_id, 'Tipo da Receita' %></p>
-  <p><%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %></p>
+  <p><%= f.label :list_id, 'Tipo da Receita' %></p>
+  <p><%= f.collection_select :list_id, @recipe_types, :id, :name %></p>
 
   <p><%= f.label :cuisine_id, 'Cozinha' %></p>
   <p><%= f.collection_select :cuisine_id, @cuisines, :id, :name %></p>

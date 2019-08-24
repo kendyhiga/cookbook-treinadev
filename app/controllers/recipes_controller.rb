@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   def show
     @user = current_user
     @lists = List.where(user: current_user)
-    @list = List.new
+    @recipe_list = RecipeList.new
   end
 
   def new

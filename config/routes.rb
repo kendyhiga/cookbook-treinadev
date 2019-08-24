@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   resources :recipe_types, only: %i[show new create]
   resources :lists, only: %i[show new create]
   resources :cuisines, only: %i[show new create]
+  resources :recipe_lists
 
   get 'search/recipes', to: 'recipes#search'
   get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
   get 'user/my_lists', to: 'users#my_lists', as: 'my_lists'
-
-  get 'user/add_recipe_to_list', to: 'list#add_recipe', as: 'add_recipe_to_list' #WIP
 end

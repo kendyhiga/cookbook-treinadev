@@ -5,10 +5,10 @@
 <% end %>
 
 <% if user_signed_in? && @user.lists.any? %>
-  <%= form_for add_recipe_to_list_path do |f| %>
-    <p><%= f.label :name, 'Adicionar para a minha lista:' %></p>
-    <p><%= f.collection_select :name, @lists, :id, :name %></p>
-
+  <%= form_for @recipe_list, method: 'post' do |f| %>
+    <p><%= f.label :list_id, 'Adicionar para a minha lista:' %></p>
+    <p><%= f.collection_select :list_id, @lists, :id, :name %></p>
+       <%= f.hidden_field :recipe_id, value: params[:id] %>
     <p><%= f.submit 'Adicionar' %></p>
   <% end %>
 <% end %>
