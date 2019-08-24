@@ -1,15 +1,14 @@
-<h1>CookBook</h1>
-<p>Bem-vindo ao maior livro de receitas online</p>
-
 <% @recipes.each do |recipe| %>
-  <h1><%= link_to recipe.title, recipe %></h1>
-  <%= image_tag recipe.image if recipe.image.attached? %>
-  <ul>
-    <li><%= recipe.recipe_type.name %></li>
-    <li><%= recipe.cuisine.name %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time_min %></li>
-  </ul>
+  <div class='col-6'>
+    <h1><%= link_to recipe.title, recipe %></h1>
+    <%= image_tag recipe.image if recipe.image.attached? %>
+    <ul>
+      <li><%= recipe.recipe_type.name %></li>
+      <li><%= recipe.cuisine.name %></li>
+      <li><%= recipe.difficulty %></li>
+      <li><%= recipe.cook_time_min %></li>
+    </ul>
+  </div>
 <% end %>
 
 <p><%= link_to 'Enviar uma receita', new_recipe_path %></p>
