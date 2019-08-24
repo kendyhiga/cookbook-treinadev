@@ -3,28 +3,43 @@
 <% end %>
 
 <%= form_for @recipe do |f| %>
-  <p><%= f.label :title, 'Título' %></p>
-  <p><%= f.text_field :title %></p>
-
-  <p><%= f.label :recipe_type_id, 'Tipo da Receita' %></p>
-  <p><%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %></p>
-
-  <p><%= f.label :cuisine_id, 'Cozinha' %></p>
-  <p><%= f.collection_select :cuisine_id, @cuisines, :id, :name %></p>
-
-  <p><%= f.label :difficulty, 'Dificuldade' %></p>
-  <p><%= f.text_field :difficulty %></p>
-
-  <p><%= f.label :cook_time, 'Tempo de Preparo' %></p>
-  <p><%= f.number_field :cook_time %></p>
-
-  <p><%= f.label :ingredients, 'Ingredientes' %></p>
-  <p><%= f.text_area :ingredients %></p>
-
-  <p><%= f.label :cook_method, 'Como Preparar' %></p>
-  <p><%= f.text_area :cook_method %></p>
-  
-  <p><%= f.submit 'Enviar' %></p>
+  <table>
+    <tr>
+      <td><%= f.label :title, 'Título' %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :recipe_type_id, 'Tipo da Receita' %></td>
+      <td><%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :cuisine_id, 'Cozinha' %></td>
+      <td><%= f.collection_select :cuisine_id, @cuisines, :id, :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :difficulty, 'Dificuldade' %></td>
+      <td><%= f.text_field :difficulty %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :cook_time, 'Tempo de Preparo' %></td>
+      <td><%= f.number_field :cook_time %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :ingredients, 'Ingredientes' %></td>
+      <td><%= f.text_area :ingredients %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :cook_method, 'Como Preparar' %></td>
+      <td><%= f.text_area :cook_method %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :image, 'Imagem' %></td>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit 'Enviar' %></td>
+    </tr>
+  </table>
 <% end %>
 
 <%= link_to 'Voltar', root_path %>

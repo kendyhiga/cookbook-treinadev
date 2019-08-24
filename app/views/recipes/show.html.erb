@@ -14,21 +14,31 @@
 <% end %>
 
 <h2><%= "Enviado por #{@recipe.user.email}" %></h2>
+<p><%= image_tag @recipe.image if @recipe.image.attached? %></p>
 <h3>Detalhes</h3>
-
-<p>Tipo da receita:</p>
-<p><%= @recipe.recipe_type.name %></p>
-<p>Cozinha:</p>
-<p><%= @recipe.cuisine.name %></p>
-<p>Dificuldade:</p>
-<p><%= @recipe.difficulty %></p>
-<p>Tempo de preparo:</p>
-<p><%= @recipe.cook_time_min %></p>
-
-<h3>Ingredientes:</h3>
-<p><%= @recipe.ingredients %></p>
-
-<h3>Como Preparar:</h3>
-<p><%= @recipe.cook_method %></p>
-
+<table>
+  <tr>
+    <td>Tipo da receita:</td>
+    <td><%= @recipe.recipe_type.name %></td>
+  </tr>
+  <tr>
+    <td>Cozinha:</td>
+    <td><%= @recipe.cuisine.name %></td>
+  </tr>
+  <tr>
+    <td>Dificuldade:</td>
+    <td><%= @recipe.difficulty %></td>
+  </tr>
+  <tr>
+    <td>Tempo de preparo:</td>
+    <td><%= @recipe.cook_time_min %></td>
+  </tr>
+  <tr>
+    <td>Ingredientes:</td>
+    <td><%= @recipe.ingredients %></td>
+  </tr>
+  <tr>
+    <td>Como Preparar:</td>
+    <td><%= @recipe.cook_method %></td>
+</table>
 <%= link_to 'Voltar', root_path %>
