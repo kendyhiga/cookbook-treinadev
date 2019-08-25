@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     flash.now[:failure] = 'Você não tem nenhuma receita cadastrada em nosso site'
   end
 
-  def my_lists
+  def lists
     @lists = List.where(user: current_user)
     flash.now[:failure] = 'Você não tem nenhuma lista cadastrada em nosso site'
   end

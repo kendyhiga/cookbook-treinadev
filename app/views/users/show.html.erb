@@ -10,11 +10,7 @@
   <% end %>
 <% end %>
 
-<% if current_user == @user %>
-  <p><%= link_to 'Minhas listas', my_lists_path %></p>
-<% else %>
-  <p><%= link_to "Listas do #{@user.name}", my_lists_path %></p>
-<% end %>
+<p><%= link_to "Listas de #{@user.name}", user_lists_path %></p>
 <p><%= link_to 'Cadastrar lista', new_list_path %></p>
 
 <h3>Receitas de <%= @user.name %></h3>

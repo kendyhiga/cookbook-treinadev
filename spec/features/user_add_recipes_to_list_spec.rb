@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User can add recipes to his list' do
   scenario 'successfully' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456')
+    user = User.create(email: 'alan@email.com', password: '123456', name: 'Alan')
     List.create!(name: 'Receitas low-carb', user: user)
     list = List.create!(name: 'Receitas favoritas', user: user)
     recipe_type = RecipeType.create(name: 'Sobremesa')
@@ -24,7 +24,7 @@ feature 'User can add recipes to his list' do
     select 'Receitas favoritas', from: 'Adicionar para a minha lista:'
     click_on 'Adicionar'
     click_on 'Meu perfil'
-    click_on 'Minhas listas'
+    click_on 'Listas de Alan'
     click_on 'Receitas favoritas'
 
     # Assert

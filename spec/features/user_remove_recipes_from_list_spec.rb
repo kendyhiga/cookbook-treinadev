@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User can remove recipes from list' do
   scenario 'successfully' do
     # Arrange
-    user = User.create!(email: 'alan@email.com', password: '123456')
+    user = User.create!(email: 'alan@email.com', password: '123456', name: 'Alan')
     List.create!(name: 'Receitas low-carb', user: user)
     list = List.create!(name: 'Receitas favoritas', user: user)
     recipe_type = RecipeType.create!(name: 'Sobremesa')
@@ -23,7 +23,7 @@ feature 'User can remove recipes from list' do
     fill_in 'Senha', with: '123456'
     click_on 'Logar'
     click_on 'Meu perfil'
-    click_on 'Minhas listas'
+    click_on 'Listas de Alan'
     click_on 'Receitas favoritas'
     click_on 'Remover da lista'
 
