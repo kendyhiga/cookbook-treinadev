@@ -1,5 +1,8 @@
 class CuisinesController < ApplicationController
+  before_action :authenticate_user!, except: %i[show]
+
   def new
+    is_admin?
     @cuisine = Cuisine.new
   end
 
@@ -22,5 +25,9 @@ class CuisinesController < ApplicationController
 
   def cuisine_params
     params.require(:cuisine).permit(:name)
+  end
+
+  def is_admin?
+    redirect_to root_path unless user_signed_in? && current_user.role == 'admin'
   end
 end

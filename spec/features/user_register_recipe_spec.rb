@@ -28,7 +28,7 @@ feature 'User register recipe' do
 
     # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
-    expect(page).to have_css('h2', text: 'Enviado por alan@email.com')
+    expect(page).to have_css('p', text: 'Enviado por: alan@email.com')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('td', text: 'Entrada')
     expect(page).to have_css('td', text: 'Arabe')

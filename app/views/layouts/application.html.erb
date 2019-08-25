@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cookbook</title>
+    <title>Social Recipes</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,20 +10,23 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    
-    <div class="row">
+    <div class='main'>
+      <%= render 'layouts/navbar' %>
+      
+      <div class="row">
 
-      <div class="col-2">
-        <%= render 'layouts/side_menu'%>
+        <div class="col-2">
+          <%= render 'layouts/side_menu'%>
+        </div>
+
+        <div class="col">
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+          <%= yield %>
+        </div>
+
       </div>
-
-      <div class="col">
-        <%= flash[:notice] %>
-        <%= flash[:alert] %>
-        <%= yield %>
-      </div>
-
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>

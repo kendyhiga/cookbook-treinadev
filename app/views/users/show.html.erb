@@ -1,7 +1,27 @@
+<h1>Perfil de <%= @user.email %></h1>
 
-<% if current_user.role == 'admin' %>
-  <%= link_to 'Cadastrar tipo de receita', new_recipe_type_path %>
-  <%= link_to 'Cadastrar cozinha', new_cuisine_path %>
+<% if user_signed_in? %>
+  <% if current_user.role == 'admin' %>
+    <p><%= link_to 'Cadastrar tipo de receita', new_recipe_type_path %></p>
+    <p><%= link_to 'Cadastrar cozinha', new_cuisine_path %></p>
+  <% end %>
 <% end %>
-<%= link_to 'Minhas listas', my_lists_path %>
-<%= link_to 'Cadastrar lista', new_list_path %>
+<p><%= link_to 'Minhas listas', my_lists_path %></p>
+<p><%= link_to 'Cadastrar lista', new_list_path %></p>
+
+<h3>Receitas de <%= @user.email %></h3>
+
+<% @recipes.each do |recipe| %>
+  <div class='row'>
+    <div class='col-3'>
+      <%= image_tag recipe.image, class: 'small-recipe-img' if recipe.image.attached? %>
+    </div>
+
+    <div class='col-3'>
+      <p><%= link_to recipe.title, recipe, class: 'link' %></p>
+      <p><%= "Tipo: #{recipe.recipe_type.name}" %></p>
+      <p><%= "Cozinha: #{recipe.cuisine.name}" %></p>
+      <p><%= "Dificuldade: #{recipe.difficulty}" %></p>
+    </div>
+  </div>
+<% end %>

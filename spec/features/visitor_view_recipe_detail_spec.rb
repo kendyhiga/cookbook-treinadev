@@ -19,7 +19,7 @@ feature 'Visitor view recipe details' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('h2', text: 'Enviado por alan@email.com')
+    expect(page).to have_css('p', text: 'Enviado por: alan@email.com')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('td', text: recipe.recipe_type.name)
     expect(page).to have_css('td', text: recipe.cuisine.name)

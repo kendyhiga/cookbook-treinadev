@@ -1,44 +1,64 @@
-<h1><%= @recipe.title %></h1>
+<div class='row'>
+  <div class='col'>
+    <h1><%= @recipe.title %></h1>
 
-<% if current_user == @recipe.user %>
-  <%= link_to 'Editar', edit_recipe_path %>
-<% end %>
+    <% if current_user == @recipe.user %>
+      <%= link_to 'Editar', edit_recipe_path %>
+    <% end %>
 
-<% if user_signed_in? && @user.lists.any? %>
-  <%= form_for @recipe_list, method: 'post' do |f| %>
-    <p><%= f.label :list_id, 'Adicionar para a minha lista:' %></p>
-    <p><%= f.collection_select :list_id, @lists, :id, :name %></p>
-       <%= f.hidden_field :recipe_id, value: params[:id] %>
-    <p><%= f.submit 'Adicionar' %></p>
-  <% end %>
-<% end %>
+    <% if user_signed_in? && @user.lists.any? %>
+      <%= form_for @recipe_list, method: 'post' do |f| %>
+        <p><%= f.label :list_id, 'Adicionar para a minha lista:' %></p>
+        <p><%= f.collection_select :list_id, @lists, :id, :name %></p>
+          <%= f.hidden_field :recipe_id, value: params[:id] %>
+        <p><%= f.submit 'Adicionar' %></p>
+      <% end %>
+    <% end %>
 
-<h2><%= "Enviado por #{@recipe.user.email}" %></h2>
-<p><%= image_tag @recipe.image if @recipe.image.attached? %></p>
-<h3>Detalhes</h3>
-<table>
-  <tr>
-    <td>Tipo da receita:</td>
-    <td><%= @recipe.recipe_type.name %></td>
-  </tr>
-  <tr>
-    <td>Cozinha:</td>
-    <td><%= @recipe.cuisine.name %></td>
-  </tr>
-  <tr>
-    <td>Dificuldade:</td>
-    <td><%= @recipe.difficulty %></td>
-  </tr>
-  <tr>
-    <td>Tempo de preparo:</td>
-    <td><%= @recipe.cook_time_min %></td>
-  </tr>
-  <tr>
-    <td>Ingredientes:</td>
-    <td><%= @recipe.ingredients %></td>
-  </tr>
-  <tr>
-    <td>Como Preparar:</td>
-    <td><%= @recipe.cook_method %></td>
-</table>
-<%= link_to 'Voltar', root_path %>
+    <p>Enviado por: <%= link_to @recipe.user.email, @recipe.user %></p>
+    <h3>Detalhes</h3>
+    <table>
+      <tr>
+        <td>Tipo:</td>
+        <td><%= @recipe.recipe_type.name %></td>
+      </tr>
+      <tr>
+        <td>Cozinha:</td>
+        <td><%= @recipe.cuisine.name %></td>
+      </tr>
+      <tr>
+        <td>Tempo de preparo:</td>
+        <td><%= @recipe.cook_time_min %></td>
+      </tr>
+      <tr>
+        <td>Dificuldade:</td>
+        <td><%= @recipe.difficulty %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class='col'>
+    <p><%= image_tag @recipe.image, class: 'big-recipe-img' if @recipe.image.attached? %></p>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col'>
+    <table>
+      <tr>
+        <td>Ingredientes:</td>
+        <td><%= @recipe.ingredients %></td>
+      </tr>
+    </table>
+    <%= link_to 'Voltar', root_path %>
+  </div>
+
+  <div class='col'>
+    <table>
+      <tr>
+        <td>Como Preparar:</td>
+        <td><%= @recipe.cook_method %></td>
+      </tr>
+    </table>
+  </div>
+</div>
