@@ -17,7 +17,7 @@ feature 'User search for recipes' do
                     user: user)
 
     visit root_path
-    click_on 'Pesquisar receita'
+    click_on 'Pesquisar no site'
     fill_in 'Titulo:', with: 'Pão de Queijo'
     click_on 'Pesquisar'
 
@@ -37,7 +37,7 @@ feature 'User search for recipes' do
                   user: user)
 
     visit root_path
-    click_on 'Pesquisar receita'
+    click_on 'Pesquisar no site'
     fill_in 'Titulo:', with: 'Bolo de fubá'
     click_on 'Pesquisar'
 
@@ -57,7 +57,7 @@ feature 'User search for recipes' do
                   user: user)
 
     visit root_path
-    click_on 'Pesquisar receita'
+    click_on 'Pesquisar no site'
     fill_in 'Titulo:', with: ''
     click_on 'Pesquisar'
 
@@ -92,7 +92,7 @@ feature 'User search for recipes' do
                         user: user)
 
     visit root_path
-    click_on 'Pesquisar receita'
+    click_on 'Pesquisar no site'
     fill_in 'Titulo:', with: 'Bolo'
     click_on 'Pesquisar'
 

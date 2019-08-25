@@ -13,4 +13,22 @@ class UsersController < ApplicationController
     @lists = List.where(user: current_user)
     flash.now[:failure] = 'Você não tem nenhuma lista cadastrada em nosso site'
   end
+
+  def search
+    @result = []
+    if params[:parameter] == ''
+      flash.now[:failure] = 'Preencha o campo de pesquisa'
+    else
+      if params[:parameter]
+        @recipes = Recipe.where('title LIKE ?', "%#{params[:parameter]}%")
+        @cuisines = Cuisine.where('name LIKE ?', "%#{params[:parameter]}%")
+        @recipe_types = RecipeType.where('name LIKE ?', "%#{params[:parameter]}%")
+        if @recipes.empty? && params[:parameter]
+          flash.now[:failure] = 'Não encontramos nada'
+        end
+      end
+    end
+    render :search
+  end
+
 end

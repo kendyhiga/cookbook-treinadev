@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
 
   get 'recipe/all', to: 'recipes#all', as: 'all_recipes'
-  get 'search/recipes', to: 'recipes#search'
+  get 'search', to: 'users#search'
   get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
   get 'user/:id/lists', to: 'users#lists', as: 'user_lists'
   delete 'list/:id/recipe/(.:recipe_id)', to: 'recipe_lists#destroy', as: 'remove_recipe_from_list'

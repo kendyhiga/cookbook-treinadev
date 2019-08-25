@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show edit update]
   before_action :find_references, only: %i[new edit]
-  before_action :authenticate_user!, except: %i[index show search]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @recipes = Recipe.last(6).reverse
@@ -41,20 +41,6 @@ class RecipesController < ApplicationController
       find_references
       render :edit
     end
-  end
-
-  def search
-    if params[:title] == ''
-      flash.now[:failure] = 'Preencha o campo de pesquisa'
-    else
-      if params[:title]
-        @recipes = Recipe.where('title LIKE ?', "%#{params[:title]}%")
-        if @recipes.empty? && params[:title]
-          flash.now[:failure] = 'Não encontramos nenhuma receita'
-        end
-      end
-    end
-    render :search
   end
 
   def all

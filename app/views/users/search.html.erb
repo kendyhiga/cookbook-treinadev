@@ -1,0 +1,28 @@
+<h1>Pesquisar no site</h1>
+
+<%= form_tag search_path, method: 'get' do %>
+  <%= label_tag :parameter, 'Titulo:' %>
+  <%= text_field_tag(:parameter) %>
+  <%= submit_tag 'Pesquisar' %>
+<% end %>
+
+<% if @recipes.nil? & @cuisines.nil? & @recipe_types.nil? %>
+  <%= flash[:failure] %>
+<% elsif @recipes.empty? & @cuisines.empty? & @recipe_types.empty? %>
+  <%= flash[:failure] %>
+<% else %>
+  <h3><%= 'Receitas Encontradas:' unless @recipes.blank? %></h3>
+  <%= render 'recipes/recipes' %>
+  <h3><%= 'Tipos de receitas encontrados:' unless @recipe_types.blank? %></h3>
+  <% @recipe_types.each do |recipe_type| %>
+    <ul>
+      <%= link_to recipe_type.name, recipe_type %>
+    </ul>
+  <% end %>
+  <h3><%= 'Cozinhas encontradas:' unless @cuisines.blank? %></h3>
+  <% @cuisines.each do |cuisine| %>
+    <ul>
+      <%= link_to cuisine.name, cuisine %>
+    </ul>
+  <% end %>
+<% end %>
