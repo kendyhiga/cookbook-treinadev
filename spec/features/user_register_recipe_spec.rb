@@ -7,7 +7,7 @@ feature 'User register recipe' do
     RecipeType.create(name: 'Entrada')
     Cuisine.create(name: 'Brasileira')
     Cuisine.create(name: 'Arabe')
-    User.create(email: 'alan@email.com', password: '123456')
+    User.create(email: 'alan@email.com', password: '123456', name: 'Alan')
 
     # simula a ação do usuário
     visit root_path
@@ -28,7 +28,7 @@ feature 'User register recipe' do
 
     # expectativas
     expect(page).to have_css('h1', text: 'Tabule')
-    expect(page).to have_css('p', text: 'Enviado por: alan@email.com')
+    expect(page).to have_css('p', text: 'Enviado por: Alan')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('td', text: 'Entrada')
     expect(page).to have_css('td', text: 'Arabe')

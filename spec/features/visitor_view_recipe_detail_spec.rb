@@ -5,7 +5,7 @@ feature 'Visitor view recipe details' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
-    user = User.create(email: 'alan@email.com', password: '123456')
+    user = User.create(email: 'alan@email.com', password: '123456', name: 'Alan')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                            cuisine: cuisine, difficulty: 'Médio',
                            cook_time: 60,
@@ -19,7 +19,7 @@ feature 'Visitor view recipe details' do
 
     # expectativas do usuário após a ação
     expect(page).to have_css('h1', text: recipe.title)
-    expect(page).to have_css('p', text: 'Enviado por: alan@email.com')
+    expect(page).to have_css('p', text: 'Enviado por: Alan')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('td', text: recipe.recipe_type.name)
     expect(page).to have_css('td', text: recipe.cuisine.name)

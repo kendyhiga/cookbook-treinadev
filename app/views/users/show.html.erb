@@ -1,20 +1,23 @@
-<h1>Perfil de <%= @user.email %></h1>
+<h1>Perfil de <%= @user.name %></h1>
 
 <% if user_signed_in? %>
   <% if current_user.admin %>
+    <hr>
+    <h3>Admin only:</h3>
     <p><%= link_to 'Cadastrar tipo de receita', new_recipe_type_path %></p>
     <p><%= link_to 'Cadastrar cozinha', new_cuisine_path %></p>
+    <hr>
   <% end %>
 <% end %>
 
 <% if current_user == @user %>
   <p><%= link_to 'Minhas listas', my_lists_path %></p>
 <% else %>
-  <p><%= link_to "Listas do #{@user.email}", my_lists_path %></p>
+  <p><%= link_to "Listas do #{@user.name}", my_lists_path %></p>
 <% end %>
 <p><%= link_to 'Cadastrar lista', new_list_path %></p>
 
-<h3>Receitas de <%= @user.email %></h3>
+<h3>Receitas de <%= @user.name %></h3>
 
 <% @recipes.each do |recipe| %>
   <div class='row'>
