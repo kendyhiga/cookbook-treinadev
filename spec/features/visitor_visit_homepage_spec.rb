@@ -28,7 +28,7 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('p', text: recipe.difficulty)
   end
 
-  scenario 'and view recipes list' do
+  scenario 'and view recipes' do
     #cria os dados necessários
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
@@ -61,5 +61,20 @@ feature 'Visitor visit homepage' do
     expect(page).to have_css('p', text: another_recipe.title)
     expect(page).to have_css('p', text: another_recipe.cuisine.name)
     expect(page).to have_css('p', text: another_recipe.difficulty)
+  end
+
+  scenario 'cannot see the correct navbar links' do
+    #Arrage
+
+    #Act
+    visit root_path
+
+    #Assert
+    expect(page).to have_content('Início')
+    expect(page).to have_content('Entrar')
+    expect(page).not_to have_content('Minhas receitas')
+    expect(page).not_to have_content('Cadastrar receita')
+    expect(page).not_to have_content('Meu perfil')
+    expect(page).not_to have_content('Sair')
   end
 end

@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, except: [show]
-
   def new
+    redirect_to new_user_session_path unless user_signed_in?
     @list = List.new
   end
 

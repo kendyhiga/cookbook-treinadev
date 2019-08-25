@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User register recipe lists' do
   scenario 'successfully' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
+    User.create(email: 'alan@email.com', password: '123456', admin: true)
 
     # Act
     visit root_path
@@ -22,7 +22,7 @@ feature 'User register recipe lists' do
 
   scenario 'and must fill in all fields' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
+    User.create(email: 'alan@email.com', password: '123456', admin: true)
 
     # Act
     visit root_path
@@ -41,7 +41,7 @@ feature 'User register recipe lists' do
 
   scenario 'and the list name must be unique' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456', role: 'admin')
+    user = User.create(email: 'alan@email.com', password: '123456', admin: true)
     List.create!(name: 'Receitas favoritas', user: user)
 
     # Act
@@ -64,7 +64,7 @@ feature 'User register recipe lists' do
     other_user = User.create(email: 'email@email.com', password: '123456')
     List.create!(name: 'Receitas favoritas', user: other_user)
 
-    User.create(email: 'alan@email.com', password: '123456', role: 'admin')
+    User.create(email: 'alan@email.com', password: '123456', admin: true)
 
     # Act
     visit root_path

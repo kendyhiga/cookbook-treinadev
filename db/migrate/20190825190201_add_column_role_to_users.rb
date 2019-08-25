@@ -1,5 +1,5 @@
 class AddColumnRoleToUsers < ActiveRecord::Migration[5.2]
   def change
-    add_column :users, :role, :string, default: 'visitor'
+    add_column :users, :admin, :boolean, default: false
   end
 end
