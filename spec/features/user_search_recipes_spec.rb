@@ -22,7 +22,7 @@ feature 'User search for recipes' do
     click_on 'Pesquisar'
 
     expect(page).to have_css('h3', text: 'Resultados da busca:')
-    expect(page).to have_css('ul', text: 'Pão de Queijo')
+    expect(page).to have_css('p', text: 'Pão de Queijo')
     expect(page).not_to have_content('Bolo de cenoura')
   end
 
@@ -97,9 +97,9 @@ feature 'User search for recipes' do
     click_on 'Pesquisar'
 
     expect(page).to have_content('Resultados da busca:')
-    expect(page).to have_css('ul', text: 'Bolo de cenoura')
-    expect(page).to have_css('ul', text: 'Bolo de Fubá')
-    expect(page).to have_css('ul', text: 'Bolo de Chocolate')
+    expect(page).to have_css('p', text: 'Bolo de cenoura')
+    expect(page).to have_css('p', text: 'Bolo de Fubá')
+    expect(page).to have_css('p', text: 'Bolo de Chocolate')
     expect(page).not_to have_content('Pão de Queijo')
   end
 end

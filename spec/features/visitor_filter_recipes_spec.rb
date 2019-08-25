@@ -86,7 +86,7 @@ feature 'User filter recipes' do
     end
 
     scenario 'and a message appears if it contains no recipe' do
-      cuisine = Cuisine.create(name: 'Brasileira')
+      Cuisine.create(name: 'Brasileira')
 
       visit root_path
       click_on 'Brasileira'

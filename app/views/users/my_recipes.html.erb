@@ -1,9 +1,7 @@
 <h1>Minhas receitas:</h1>
 
 <% if @recipes.any? %>
-  <% @recipes.each do |recipe| %>
-    <ul><%= link_to recipe.title, recipe %></ul>
-  <% end %>
+  <%= render 'recipes/recipes' %>
 <% else %>
   <%= flash[:failure] %>
 <% end %>

@@ -57,6 +57,10 @@ class RecipesController < ApplicationController
     render :search
   end
 
+  def all
+    @recipes = Recipe.all
+  end
+
   private
 
   def recipe_params

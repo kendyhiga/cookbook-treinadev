@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :recipe_lists, only: %i[create]
   resources :users, only: %i[show]
 
+  get 'recipe/all', to: 'recipes#all', as: 'all_recipes'
   get 'search/recipes', to: 'recipes#search'
   get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
   get 'user/my_lists', to: 'users#my_lists', as: 'my_lists'

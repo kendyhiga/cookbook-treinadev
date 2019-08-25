@@ -12,7 +12,5 @@
   <%= flash[:failure] %>
 <% else %>
   <h3><%= 'Resultados da busca:' unless @recipes.nil? %></h3>
-  <% @recipes.each do |recipe| %>
-    <ul><%= link_to recipe.title, recipe %></ul>
-  <% end %>
+  <%= render 'recipes' %>
 <% end %>
