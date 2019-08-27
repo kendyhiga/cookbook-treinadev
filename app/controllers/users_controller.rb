@@ -31,4 +31,15 @@ class UsersController < ApplicationController
     render :search
   end
 
+  def reject_recipe
+    @recipe = Recipe.find(params[:id])
+    @recipe.rejected!
+    redirect_to pending_recipes_path
+  end
+
+  def accept_recipe
+    @recipe = Recipe.find(params[:id])
+    @recipe.accepted!
+    redirect_to pending_recipes_path
+  end
 end

@@ -18,6 +18,10 @@
     <p>Enviado por: <%= link_to @recipe.user.name, @recipe.user %></p>
     
     <% if @recipe.pending? %>
+      <% if current_user.admin %>
+        <p><%= link_to 'Rejeitar', reject_recipe_path %></p>
+        <p><%= link_to 'Aceitar', accept_recipe_path %></p>
+      <% end %>
       <p>Receita esta pendente, aguardando aprovação dos administradores</p>
     <% end %>
 

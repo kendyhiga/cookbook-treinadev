@@ -8,12 +8,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    unless @recipe.accepted? || @recipe.user == current_user
-      redirect_to root_path
-    else
+    if @recipe.accepted? || @recipe.user == current_user || (user_signed_in? && current_user.admin)
       @user = current_user
       @lists = List.where(user: current_user)
       @recipe_list = RecipeList.new
+    else
+      redirect_to root_path
     end
   end
 
@@ -49,6 +49,10 @@ class RecipesController < ApplicationController
 
   def all
     @recipes = Recipe.accepted
+  end
+  
+  def pending_line
+    @recipes = Recipe.pending
   end
 
   private

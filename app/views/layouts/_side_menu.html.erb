@@ -2,6 +2,9 @@
   <li class="nav-item">
     <p class="side-menu-topic"><%= link_to 'Todas as receitas', all_recipes_path, class: 'link' %></p>
     <p class="side-menu-topic"><%= link_to 'Pesquisar no site', search_path, class: 'link' %></p>
+    <% if user_signed_in? && current_user.admin? %>
+      <p class="side-menu-topic"><%= link_to 'Receitas pendentes', pending_recipes_path, class: 'link' %></p>
+    <% end %>
   </li>
   <li class="nav-item">
     <p class="side-menu-topic">Tipo</p>
