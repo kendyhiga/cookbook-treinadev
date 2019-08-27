@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User search for recipes' do
+feature 'Visitor search for recipes' do
   scenario 'sucessfully by its exact name' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')

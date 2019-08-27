@@ -6,6 +6,8 @@ class Recipe < ApplicationRecord
   has_many :lists, through: :recipe_lists
   has_one_attached :image
 
+  enum status: %i[pending accepted rejected]
+
   validates :title, :recipe_type_id, :cuisine_id, :difficulty,
             :cook_time, :ingredients, :cook_method,
             presence: true

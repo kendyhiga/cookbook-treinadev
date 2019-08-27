@@ -11,7 +11,7 @@ feature 'Visitor view recipe details' do
                            cook_time: 60,
                            ingredients: 'Farinha, açucar, cenoura',
                            cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                           user: user)
+                           user: user, status: 'accepted')
 
     # simula a ação do usuário
     visit root_path
@@ -42,7 +42,7 @@ feature 'Visitor view recipe details' do
                            ingredients: 'Farinha, açucar, cenoura',
                            cook_method: 'Cozinhe a cenoura, corte em pedaços
                            pequenos, misture com o restante dos ingredientes',
-                           user: user)
+                           user: user, status: 'accepted')
 
     # simula a ação do usuário
     visit root_path

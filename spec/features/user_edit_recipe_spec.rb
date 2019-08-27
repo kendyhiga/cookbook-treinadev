@@ -11,7 +11,7 @@ feature 'User update recipe' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: user)
+                  user: user, status: 'accepted')
 
     visit root_path
     click_on 'Entrar'
@@ -47,7 +47,7 @@ feature 'User update recipe' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: user)
+                  user: user, status: 'accepted')
 
     visit root_path
     click_on 'Entrar'
@@ -76,7 +76,7 @@ feature 'User update recipe' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: user)
+                  user: user, status: 'accepted')
 
     visit root_path
     click_on 'Bolo de cenoura'
@@ -94,7 +94,7 @@ feature 'User update recipe' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: another_user)
+                  user: another_user, status: 'accepted')
 
     visit root_path
     click_on 'Entrar'

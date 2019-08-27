@@ -13,7 +13,7 @@ feature 'User can add recipes to his list' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: user)
+                  user: user, status: 'accepted')
     # Act
     visit root_path
     click_on 'Entrar'
@@ -45,7 +45,7 @@ feature 'User can add recipes to his list' do
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                   cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
                                 misture com o restante dos ingredientes',
-                  user: user)
+                  user: user, status: 'accepted')
     # Act
     visit root_path
     click_on 'Entrar'

@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show all]
 
   def index
-    @recipes = Recipe.last(6).reverse
+    @recipes = Recipe.accepted.last(6).reverse
   end
 
   def show

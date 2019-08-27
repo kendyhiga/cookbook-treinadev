@@ -16,6 +16,11 @@
     <% end %>
 
     <p>Enviado por: <%= link_to @recipe.user.name, @recipe.user %></p>
+    
+    <% if @recipe.pending? %>
+      <p>Receita esta pendente, aguardando aprovação dos administradores</p>
+    <% end %>
+
     <h3>Detalhes</h3>
     <table>
       <tr>
