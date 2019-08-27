@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show edit update]
   before_action :find_references, only: %i[new edit]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show all]
 
   def index
     @recipes = Recipe.last(6).reverse

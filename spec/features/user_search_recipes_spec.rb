@@ -21,7 +21,7 @@ feature 'User search for recipes' do
     fill_in 'Titulo:', with: 'Pão de Queijo'
     click_on 'Pesquisar'
 
-    expect(page).to have_css('h3', text: 'Resultados da busca:')
+    expect(page).to have_css('h3', text: 'Receitas Encontradas:')
     expect(page).to have_css('p', text: 'Pão de Queijo')
     expect(page).not_to have_content('Bolo de cenoura')
   end
@@ -41,9 +41,9 @@ feature 'User search for recipes' do
     fill_in 'Titulo:', with: 'Bolo de fubá'
     click_on 'Pesquisar'
 
-    expect(page).not_to have_content('Resultados da busca:')
+    expect(page).not_to have_content('Receitas Encontradas:')
     expect(page).not_to have_content('Bolo de cenoura')
-    expect(page).to have_content('Não encontramos nenhuma receita')
+    expect(page).to have_content('Não encontramos nada')
   end
 
   scenario 'by unexistant recipe and none is shown' do
@@ -61,7 +61,7 @@ feature 'User search for recipes' do
     fill_in 'Titulo:', with: ''
     click_on 'Pesquisar'
 
-    expect(page).not_to have_content('Resultados da busca:')
+    expect(page).not_to have_content('Receitas Encontradas:')
     expect(page).not_to have_content('Bolo de cenoura')
     expect(page).to have_content('Preencha o campo de pesquisa')
   end
@@ -96,7 +96,7 @@ feature 'User search for recipes' do
     fill_in 'Titulo:', with: 'Bolo'
     click_on 'Pesquisar'
 
-    expect(page).to have_content('Resultados da busca:')
+    expect(page).to have_content('Receitas Encontradas:')
     expect(page).to have_css('p', text: 'Bolo de cenoura')
     expect(page).to have_css('p', text: 'Bolo de Fubá')
     expect(page).to have_css('p', text: 'Bolo de Chocolate')
