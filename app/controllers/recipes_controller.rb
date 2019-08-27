@@ -8,9 +8,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @lists = List.where(user: current_user)
-    @recipe_list = RecipeList.new
+    unless @recipe.accepted? || @recipe.user == current_user
+      redirect_to root_path
+    else
+      @user = current_user
+      @lists = List.where(user: current_user)
+      @recipe_list = RecipeList.new
+    end
   end
 
   def new
@@ -44,7 +48,7 @@ class RecipesController < ApplicationController
   end
 
   def all
-    @recipes = Recipe.all
+    @recipes = Recipe.accepted
   end
 
   private
