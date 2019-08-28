@@ -28,7 +28,7 @@ describe 'View recipe details' do
     get '/api/v1/recipes/666'
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json_recipe[:message]).to eq 'Recipe not found'
+    expect(json_recipe[:message]).to eq 'Receita não encontrada'
     expect(response).to have_http_status(200)
   end
 end
