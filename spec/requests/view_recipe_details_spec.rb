@@ -10,7 +10,7 @@ describe 'View recipe details' do
                             cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                             cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
 
-    get "/api/v1/recipes/#{recipe.id}"
+    get api_v1_recipe_path(1)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
     # expect(json_recipe[:user]).to eq recipe.user
@@ -24,11 +24,11 @@ describe 'View recipe details' do
     expect(response).to have_http_status(200)
   end
 
-  it 'returns status 404 if the recipe doesnt exist' do
-    get '/api/v1/recipes/666'
+  it 'returns status 400 if the recipe doesnt exist' do
+    get api_v1_recipe_path(666)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
     expect(json_recipe[:message]).to eq 'Receita não encontrada'
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status(404)
   end
 end

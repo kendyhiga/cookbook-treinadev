@@ -19,7 +19,6 @@ describe 'List recipes by recipe type' do
                                     cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
                                     cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
   
-
     get "/api/v1/recipe_types/#{recipe_type.id}"
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 
