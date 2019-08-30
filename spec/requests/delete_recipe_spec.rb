@@ -13,6 +13,7 @@ describe 'Delete recipe' do
     delete api_v1_recipe_path(recipe.id)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
+    expect(Recipe.find_by(id: recipe.id)).to eq nil
     expect(json_recipe[:user_id]).to eq 1
     expect(json_recipe[:title]).to eq recipe.title
     expect(json_recipe[:difficulty]).to eq recipe.difficulty
@@ -21,7 +22,6 @@ describe 'Delete recipe' do
     expect(json_recipe[:cook_time]).to eq recipe.cook_time
     expect(json_recipe[:ingredients]).to eq recipe.ingredients
     expect(json_recipe[:cook_method]).to eq recipe.cook_method
-    expect(Recipe.find_by(id: recipe.id)).to eq nil
     expect(response).to have_http_status(200)
   end
 
