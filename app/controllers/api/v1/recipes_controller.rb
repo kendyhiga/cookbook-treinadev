@@ -1,11 +1,10 @@
 class Api::V1::RecipesController < Api::V1::ApiController
   def show
-    if Recipe.exists?(params[:id])
-      @recipe = Recipe.find(params[:id])
-      render json: @recipe, status: 200
-    else
-      render json: { message: 'Receita não encontrada'}, status: 404
-    end
+    @recipe = Recipe.find(params[:id])
+    render json: @recipe, status: 200
+
+  rescue ActiveRecord::RecordNotFound
+    render json: { message: 'Receita não encontrada'}, status: 404
   end
 
   def create
@@ -15,6 +14,15 @@ class Api::V1::RecipesController < Api::V1::ApiController
     else
       render json: { message: 'Não foi possível salvar a receita' }, status: 406
     end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    render json: @recipe, status: 200
+
+  rescue ActiveRecord::RecordNotFound
+    render json: { message: 'Receita não encontrada'}, status: 404
   end
 
   private
