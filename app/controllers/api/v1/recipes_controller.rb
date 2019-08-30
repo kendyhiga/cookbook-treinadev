@@ -1,4 +1,24 @@
 class Api::V1::RecipesController < Api::V1::ApiController
+
+  def index
+    case params[:status]
+    when nil
+      @recipes = Recipe.all 
+    when 'accepted'
+      @recipes = Recipe.accepted
+    when 'rejected'
+      @recipes = Recipe.rejected
+    when 'pending'
+      @recipes = Recipe.pending
+    end
+    
+    if @recipes
+      render json: @recipes, status: 200
+    else
+      render json: { message: 'Status invalido' }, status: 404
+    end
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
     render json: @recipe, status: 200

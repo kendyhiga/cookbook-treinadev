@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User can approve or reject recipe' do
   describe 'rejects' do
-    scenario 'successfully' do
+    it 'successfully' do
       recipe_type = RecipeType.create!(name: 'Sobremesa')
       cuisine = Cuisine.create!(name: 'Brasileira')
       user = User.create!(email: 'admin@email.com', password: '123456')
@@ -19,7 +19,7 @@ describe 'User can approve or reject recipe' do
       expect(json_recipe[:status]).to eq 'rejected'
     end
 
-    scenario 'an the recipe does not exist' do
+    it 'an the recipe does not exist' do
       post api_v1_reject_recipe_path(555)
       json_recipe = JSON.parse(response.body, symbolize_names: true)
 
@@ -29,7 +29,7 @@ describe 'User can approve or reject recipe' do
   end
     
   describe 'rejects' do
-    scenario 'accepts successfully' do
+    it 'accepts successfully' do
       recipe_type = RecipeType.create!(name: 'Sobremesa')
       cuisine = Cuisine.create!(name: 'Brasileira')
       user = User.create!(email: 'admin@email.com', password: '123456')
@@ -46,7 +46,7 @@ describe 'User can approve or reject recipe' do
       expect(json_recipe[:status]).to eq 'accepted'
     end
 
-    scenario 'an the recipe does not exist' do
+    it 'an the recipe does not exist' do
       post api_v1_accept_recipe_path(69)
       json_recipe = JSON.parse(response.body, symbolize_names: true)
 
