@@ -1,0 +1,45 @@
+pt-BR:
+  home: Início
+  my_recipes: Minhas receitas
+  recipe_register: Cadastrar receita
+  my_profile: Meu perfil
+  signin: Entrar
+  signout: Sair
+
+  signup: Cadastrar-se
+  password: Senha
+  password_confirmation: 'Confirmar senha'
+  characters_minimum: caracteres minimos
+  remember_me: Lembrar de mim
+  forgot_password: Esqueceu sua senha?
+  login: Entrar
+  send_me_reset_password_instructions: 'Enviar instruções para registrar nova senha'
+
+  all_recipes_from_site: Todas as receitas
+  search_recipes_from_site: Pesquisar no site
+  pending_recipes: Receitas pendentes
+
+  title: Título
+  recipe_type: Tipo da Receita
+  cuisine: Cozinha
+  type: Tipo
+  difficulty: Dificuldade
+  cook_time: Tempo de preparo
+  ingredients: Ingredientes
+  cook_method: Como Preparar
+  image: Imagem
+  submit: Enviar
+  back: Voltar
+  edit: Editar
+
+  last_recipes: Ultimas Receitas
+  add_recipe_to_list: Adicionar para a minha lista
+  add: Adicionar
+  submitted_by: Enviado por
+  accept: Aceitar
+  reject: Rejeitar
+  pending_recipe_disclaimer: Receita esta pendente, aguardando aprovação dos administradores
+  register_new_recipe: Cadastrar nova receita
+  edit_recipe: Editar a receita
+
+  all_recipes: Todas as receitas

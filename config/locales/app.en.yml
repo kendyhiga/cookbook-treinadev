@@ -1,0 +1,45 @@
+en:
+  home: Home
+  my_recipes: My recipes
+  recipe_register: Recipe register
+  my_profile: My profile
+  signin: Sign in
+  signout: Sign out
+
+  signup: Sign up
+  password: Password
+  password_confirmation: Password Confirmation
+  characters_minimum: characters minimum
+  remember_me: Remember me
+  forgot_password: Forgot password
+  login: Log in
+  send_me_reset_password_instructions: Send me reset password instructions
+
+  all_recipes_from_site: All recipes from site
+  search_recipes_from_site: Search recipes from site
+  pending_recipes: Pending recipes
+
+  title: Title
+  recipe_type: Recipe type
+  cuisine: Cuisine
+  type: Type
+  difficulty: Difficulty
+  cook_time: Cook time
+  ingredients: Ingredients
+  cook_method: Cook method
+  image: Image
+  submit: Submit
+  back: Back
+  edit: Edit
+
+  last_recipes: Last recipes
+  add_recipe_to_list: Add recipe to list
+  add: Add
+  submitted_by: Submitted by
+  accept: Accept
+  reject: Reject
+  pending_recipe_disclaimer: Recipe is pending, waiting for admin approval
+  register_new_recipe: Register new recipes
+  edit_recipe: Edit recipe
+
+  all_recipes: All Recipes

@@ -1,13 +1,13 @@
 <ul class="nav flex-column">
   <li class="nav-item">
-    <p class="side-menu-topic"><%= link_to 'Todas as receitas', all_recipes_path, class: 'link' %></p>
-    <p class="side-menu-topic"><%= link_to 'Pesquisar no site', search_path, class: 'link' %></p>
+    <p class="side-menu-topic"><%= link_to (t 'all_recipes_from_site'), all_recipes_path, class: 'link' %></p>
+    <p class="side-menu-topic"><%= link_to (t 'search_recipes_from_site'), search_path, class: 'link' %></p>
     <% if user_signed_in? && current_user.admin? %>
-      <p class="side-menu-topic"><%= link_to 'Receitas pendentes', pending_recipes_path, class: 'link' %></p>
+      <p class="side-menu-topic"><%= link_to (t 'pending_recipes'), pending_recipes_path, class: 'link' %></p>
     <% end %>
   </li>
   <li class="nav-item">
-    <p class="side-menu-topic">Tipo</p>
+    <p class="side-menu-topic"><%= t 'type' %></p>
     <ul class="nav flex-column">
       <li class="nav-item">
         <% RecipeType.all.each do |recipe_type| %>
@@ -17,7 +17,7 @@
     </ul>
   </li>
   <li class="nav-item">
-    <p class="side-menu-topic">Cozinha</p>
+    <p class="side-menu-topic"><%= t 'cuisine' %></p>
     <ul class="nav flex-column">
       <li class="nav-item">
         <% Cuisine.all.each do |cuisine| %>

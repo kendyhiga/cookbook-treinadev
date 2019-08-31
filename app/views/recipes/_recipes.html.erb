@@ -5,9 +5,9 @@
     </div>
     <div class='col-3'>
       <p><%= link_to recipe.title, recipe, class: 'link' %></p>
-      <p><%= "Tipo: #{recipe.recipe_type.name}" %></p>
-      <p><%= "Cozinha: #{recipe.cuisine.name}" %></p>
-      <p><%= "Dificuldade: #{recipe.difficulty}" %></p>
+      <p><%= "#{(t 'type')}: #{recipe.recipe_type.name}" %></p>
+      <p><%= "#{(t 'cuisine')}: #{recipe.cuisine.name}" %></p>
+      <p><%= "#{(t 'difficulty')}: #{recipe.difficulty}" %></p>
     </div>
   </div>
 <% end %>

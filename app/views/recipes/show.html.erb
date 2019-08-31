@@ -3,44 +3,44 @@
     <h1><%= @recipe.title %></h1>
 
     <% if current_user == @recipe.user %>
-      <%= link_to 'Editar', edit_recipe_path %>
+      <%= link_to (t 'edit'), edit_recipe_path %>
     <% end %>
 
     <% if user_signed_in? && @user.lists.any? %>
       <%= form_for @recipe_list, method: 'post' do |f| %>
-        <p><%= f.label :list_id, 'Adicionar para a minha lista:' %></p>
+        <p><%= f.label :list_id, (t 'add_recipe_to_list') %></p>
         <p><%= f.collection_select :list_id, @lists, :id, :name %></p>
           <%= f.hidden_field :recipe_id, value: params[:id] %>
-        <p><%= f.submit 'Adicionar' %></p>
+        <p><%= f.submit (t 'add') %></p>
       <% end %>
     <% end %>
 
-    <p>Enviado por: <%= link_to @recipe.user.name, @recipe.user %></p>
+    <p><%= link_to "#{(t 'submitted_by')}: #{@recipe.user.name}", @recipe.user %></p>
     
     <% if @recipe.pending? %>
       <% if current_user.admin %>
-        <p><%= link_to 'Rejeitar', reject_recipe_path %></p>
-        <p><%= link_to 'Aceitar', accept_recipe_path %></p>
+        <p><%= link_to (t 'reject'), reject_recipe_path %></p>
+        <p><%= link_to (t 'accept'), accept_recipe_path %></p>
       <% end %>
-      <p>Receita esta pendente, aguardando aprovação dos administradores</p>
+      <p><%= (t 'pending_recipe_disclaimer') %></p>
     <% end %>
 
-    <h3>Detalhes</h3>
+    <h3><%= (t 'details') %></h3>
     <table>
       <tr>
-        <td>Tipo:</td>
+        <td><%= (t 'type') %>:</td>
         <td><%= @recipe.recipe_type.name %></td>
       </tr>
       <tr>
-        <td>Cozinha:</td>
+        <td><%= (t 'cuisine') %>:</td>
         <td><%= @recipe.cuisine.name %></td>
       </tr>
       <tr>
-        <td>Tempo de preparo:</td>
+        <td><%= (t 'cook_time') %>:</td>
         <td><%= @recipe.cook_time_min %></td>
       </tr>
       <tr>
-        <td>Dificuldade:</td>
+        <td><%= (t 'difficulty') %>:</td>
         <td><%= @recipe.difficulty %></td>
       </tr>
     </table>
@@ -55,17 +55,17 @@
   <div class='col'>
     <table>
       <tr>
-        <td>Ingredientes:</td>
+        <td><%= (t 'ingredients') %>:</td>
         <td><%= @recipe.ingredients %></td>
       </tr>
     </table>
-    <%= link_to 'Voltar', root_path %>
+    <%= link_to (t 'back'), root_path %>
   </div>
 
   <div class='col'>
     <table>
       <tr>
-        <td>Como Preparar:</td>
+        <td><%= (t 'cook_method') %>:</td>
         <td><%= @recipe.cook_method %></td>
       </tr>
     </table>

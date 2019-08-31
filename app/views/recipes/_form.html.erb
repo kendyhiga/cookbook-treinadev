@@ -5,41 +5,41 @@
 <%= form_for @recipe do |f| %>
   <table>
     <tr>
-      <td><%= f.label :title, 'Título' %></td>
+      <td><%= f.label :title, (t 'title') %></td>
       <td><%= f.text_field :title %></td>
     </tr>
     <tr>
-      <td><%= f.label :recipe_type_id, 'Tipo da Receita' %></td>
+      <td><%= f.label :recipe_type_id, (t 'recipe_type') %></td>
       <td><%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %></td>
     </tr>
     <tr>
-      <td><%= f.label :cuisine_id, 'Cozinha' %></td>
+      <td><%= f.label :cuisine_id, (t 'cuisine') %></td>
       <td><%= f.collection_select :cuisine_id, @cuisines, :id, :name %></td>
     </tr>
     <tr>
-      <td><%= f.label :difficulty, 'Dificuldade' %></td>
+      <td><%= f.label :difficulty, (t 'difficulty') %></td>
       <td><%= f.text_field :difficulty %></td>
     </tr>
     <tr>
-      <td><%= f.label :cook_time, 'Tempo de Preparo' %></td>
+      <td><%= f.label :cook_time, (t 'cook_time') %></td>
       <td><%= f.number_field :cook_time %></td>
     </tr>
     <tr>
-      <td><%= f.label :ingredients, 'Ingredientes' %></td>
+      <td><%= f.label :ingredients, (t 'ingredients') %></td>
       <td><%= f.text_area :ingredients %></td>
     </tr>
     <tr>
-      <td><%= f.label :cook_method, 'Como Preparar' %></td>
+      <td><%= f.label :cook_method, (t 'cook_method') %></td>
       <td><%= f.text_area :cook_method %></td>
     </tr>
     <tr>
-      <td><%= f.label :image, 'Imagem' %></td>
+      <td><%= f.label :image, (t 'image') %></td>
       <td><%= f.file_field :image %></td>
     </tr>
     <tr>
-      <td><%= f.submit 'Enviar' %></td>
+      <td><%= f.submit (t 'submit') %></td>
     </tr>
   </table>
 <% end %>
 
-<%= link_to 'Voltar', root_path %>
+<%= link_to (t 'back'), root_path %>
