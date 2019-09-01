@@ -31,7 +31,7 @@ feature 'User filter recipes' do
       visit root_path
       click_on 'Sobremesa'
 
-      expect(page).to have_content('Receitas filtradas por tipo: Sobremesa')
+      expect(page).to have_content('Receitas filtradas por: Sobremesa')
       expect(page).to have_css('p', text: 'Bolo de cenoura')
       expect(page).to have_css('p', text: 'Bolo de Fubá')
       expect(page).to have_css('p', text: 'Bolo de Chocolate')
@@ -78,7 +78,7 @@ feature 'User filter recipes' do
       visit root_path
       click_on 'Brasileira'
 
-      expect(page).to have_content('Receitas filtradas por cozinha: Brasileira')
+      expect(page).to have_content('Receitas filtradas por: Brasileira')
       expect(page).to have_css('p', text: 'Bolo de cenoura')
       expect(page).to have_css('p', text: 'Bolo de Fubá')
       expect(page).to have_css('p', text: 'Pão de Queijo')

@@ -18,10 +18,10 @@ feature 'Visitor search for recipes' do
 
     visit root_path
     click_on 'Pesquisar no site'
-    fill_in 'Titulo:', with: 'Pão de Queijo'
+    fill_in 'Título', with: 'Pão de Queijo'
     click_on 'Pesquisar'
 
-    expect(page).to have_css('h3', text: 'Receitas Encontradas:')
+    expect(page).to have_css('h3', text: 'Receitas encontradas')
     expect(page).to have_css('p', text: 'Pão de Queijo')
     expect(page).not_to have_content('Bolo de cenoura')
   end
@@ -38,10 +38,10 @@ feature 'Visitor search for recipes' do
 
     visit root_path
     click_on 'Pesquisar no site'
-    fill_in 'Titulo:', with: 'Bolo de fubá'
+    fill_in 'Título', with: 'Bolo de fubá'
     click_on 'Pesquisar'
 
-    expect(page).not_to have_content('Receitas Encontradas:')
+    expect(page).not_to have_content('Receitas encontradas')
     expect(page).not_to have_content('Bolo de cenoura')
     expect(page).to have_content('Não encontramos nada')
   end
@@ -58,10 +58,10 @@ feature 'Visitor search for recipes' do
 
     visit root_path
     click_on 'Pesquisar no site'
-    fill_in 'Titulo:', with: ''
+    fill_in 'Título', with: ''
     click_on 'Pesquisar'
 
-    expect(page).not_to have_content('Receitas Encontradas:')
+    expect(page).not_to have_content('Receitas encontradas')
     expect(page).not_to have_content('Bolo de cenoura')
     expect(page).to have_content('Preencha o campo de pesquisa')
   end
@@ -93,10 +93,10 @@ feature 'Visitor search for recipes' do
 
     visit root_path
     click_on 'Pesquisar no site'
-    fill_in 'Titulo:', with: 'Bolo'
+    fill_in 'Título', with: 'Bolo'
     click_on 'Pesquisar'
 
-    expect(page).to have_content('Receitas Encontradas:')
+    expect(page).to have_content('Receitas encontradas')
     expect(page).to have_css('p', text: 'Bolo de cenoura')
     expect(page).to have_css('p', text: 'Bolo de Fubá')
     expect(page).to have_css('p', text: 'Bolo de Chocolate')

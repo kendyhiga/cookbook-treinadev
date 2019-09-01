@@ -1,4 +1,4 @@
-<h1>Cadastrar nova lista</h1>
+<h1><%= (t 'register_new_list') %></h1>
 
 <% if @list.errors.any? %>
   <%= flash[:failure] %>
@@ -6,10 +6,10 @@
 
 <%= form_for @list do |f| %>
 
-  <%= f.label :name, 'Nome' %>
+  <%= f.label :name, (t 'name') %>
   <%= f.text_field :name %>
 
-  <%= f.submit 'Cadastrar' %>
+  <%= f.submit (t 'register') %>
 <% end %>
 
-<%= link_to 'Voltar', root_path %>
+<%= link_to (t 'back'), root_path %>

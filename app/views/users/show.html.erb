@@ -1,31 +1,18 @@
-<h1>Perfil de <%= @user.name %></h1>
+<h1><%= "#{(t 'profile_of')} #{@user.name}" %></h1>
 
 <% if user_signed_in? %>
   <% if current_user.admin %>
     <hr>
-    <h3>Admin only:</h3>
-    <p><%= link_to 'Cadastrar tipo de receita', new_recipe_type_path %></p>
-    <p><%= link_to 'Cadastrar cozinha', new_cuisine_path %></p>
+    <h3><%= "#{(t 'admin_only')}:" %></h3>
+    <p><%= link_to (t 'register_recipe_type'), new_recipe_type_path %></p>
+    <p><%= link_to (t 'register_cuisine'), new_cuisine_path %></p>
     <hr>
   <% end %>
 <% end %>
 
-<p><%= link_to "Listas de #{@user.name}", user_lists_path %></p>
-<p><%= link_to 'Cadastrar lista', new_list_path %></p>
+<p><%= link_to "#{(t 'lists_of')} #{@user.name}", user_lists_path %></p>
+<p><%= link_to (t 'register_list'), new_list_path %></p>
 
-<h3>Receitas de <%= @user.name %></h3>
+<h3><%= "#{(t 'recipes_of')} #{@user.name}" %></h3>
 
-<% @recipes.each do |recipe| %>
-  <div class='row'>
-    <div class='col-3'>
-      <%= image_tag recipe.image, class: 'small-recipe-img' if recipe.image.attached? %>
-    </div>
-
-    <div class='col-3'>
-      <p><%= link_to recipe.title, recipe, class: 'link' %></p>
-      <p><%= "Tipo: #{recipe.recipe_type.name}" %></p>
-      <p><%= "Cozinha: #{recipe.cuisine.name}" %></p>
-      <p><%= "Dificuldade: #{recipe.difficulty}" %></p>
-    </div>
-  </div>
-<% end %>
+<%= render 'recipes/recipes' %>

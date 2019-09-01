@@ -1,19 +1,7 @@
-<h1><%= "Receitas filtradas por cozinha: #{@cuisine.name}" %></h1>
+<h1><%= "#{(t 'recipes_filtered_by')}: #{@cuisine.name}" %></h1>
 
 <%= flash[:failure] %>
 
-<% @recipes.each do |recipe| %>
-  <div class='row'>
-    <div class='col-3'>
-      <%= image_tag recipe.image, class: 'small-recipe-img' if recipe.image.attached? %>
-    </div>
-    <div class='col-3'>
-      <p><%= link_to recipe.title, recipe, class: 'link' %></p>
-      <p><%= "Tipo: #{recipe.recipe_type.name}" %></p>
-      <p><%= "Cozinha: #{recipe.cuisine.name}" %></p>
-      <p><%= "Dificuldade: #{recipe.difficulty}" %></p>
-    </div>
-  </div>
-<% end %>
+<%= render 'recipes/recipes' %>
 <br>
-<%= link_to 'Voltar', root_path %>
+<%= link_to (t 'back'), root_path %>

@@ -44,3 +44,23 @@ en:
 
   all_recipes: All Recipes
   details: Details
+
+  search_on_the_site: Search on the site
+  search: Search
+  recipes_found: Recipes found
+  recipe_types_found: Recipe types found
+  cuisines_found: Cuisines found
+  recipes_filtered_by: Recipes filtered by
+
+  profile_of: Profile of
+  lists_of: Lists of
+  recipes_of: Recipes of
+  my_lists: My lists
+  register: Register
+  register_recipe_type: Register recipe type
+  register_cuisine: Register cuisine
+  register_list: Register list
+  admin_only: Admin actions only
+  register_new_list: Register new list
+  name: Name
+  remove_from_list: Remove from list

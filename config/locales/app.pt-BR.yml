@@ -44,3 +44,23 @@ pt-BR:
 
   all_recipes: Todas as receitas
   details: Detalhes
+
+  search_on_the_site: Pesquisar no site
+  search: Pesquisar
+  recipes_found: Receitas encontradas
+  recipe_types_found: Tipo de receitas encontradas
+  cuisines_found: Cozinhas encontradas
+  recipes_filtered_by: Receitas filtradas por
+
+  profile_of: Perfil de
+  lists_of: Listas de
+  recipes_of: Receitas de
+  my_lists: Minhas listas
+  register: Cadastrar
+  register_recipe_type: Cadastrar tipo de receita
+  register_cuisine: Cadastrar cozinha
+  register_list: Cadastrar lista
+  admin_only: Ações apenas para admins
+  register_new_list: Cadastrar nova lista
+  name: Nome
+  remove_from_list: Remover da lista

@@ -1,9 +1,9 @@
-<h1>Pesquisar no site</h1>
+<h1><%= (t 'search_on_the_site') %></h1>
 
 <%= form_tag search_path, method: 'get' do %>
-  <%= label_tag :parameter, 'Titulo:' %>
+  <%= label_tag :parameter, (t 'title') %>
   <%= text_field_tag(:parameter) %>
-  <%= submit_tag 'Pesquisar' %>
+  <%= submit_tag (t 'search') %>
 <% end %>
 
 <% if @recipes.nil? & @cuisines.nil? & @recipe_types.nil? %>
@@ -11,15 +11,15 @@
 <% elsif @recipes.empty? & @cuisines.empty? & @recipe_types.empty? %>
   <%= flash[:failure] %>
 <% else %>
-  <h3><%= 'Receitas Encontradas:' unless @recipes.blank? %></h3>
+  <h3><%= (t 'recipes_found') unless @recipes.blank? %></h3>
   <%= render 'recipes/recipes' %>
-  <h3><%= 'Tipos de receitas encontrados:' unless @recipe_types.blank? %></h3>
+  <h3><%= (t 'recipe_types_found') unless @recipe_types.blank? %></h3>
   <% @recipe_types.each do |recipe_type| %>
     <ul>
       <%= link_to recipe_type.name, recipe_type %>
     </ul>
   <% end %>
-  <h3><%= 'Cozinhas encontradas:' unless @cuisines.blank? %></h3>
+  <h3><%= (t 'cuisines_found') unless @cuisines.blank? %></h3>
   <% @cuisines.each do |cuisine| %>
     <ul>
       <%= link_to cuisine.name, cuisine %>
