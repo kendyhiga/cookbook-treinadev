@@ -10,7 +10,7 @@ feature 'Admin register recipe_type' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
     click_on 'Cadastrar tipo de receita'
 
@@ -30,7 +30,7 @@ feature 'Admin register recipe_type' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
     click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: ''
@@ -50,7 +50,7 @@ feature 'Admin register recipe_type' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
     click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: 'Salada'
@@ -70,7 +70,7 @@ feature 'Admin register recipe_type' do
     click_on 'Entrar'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
 
     # Assert
@@ -86,7 +86,7 @@ feature 'Admin register recipe_type' do
     click_on 'Entrar'
     fill_in 'Email', with: 'email@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     visit new_recipe_type_path
 
     # Assert

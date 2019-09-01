@@ -17,14 +17,14 @@ feature 'User update recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Bolo de cenoura'
     click_on 'Editar'
 
     fill_in 'Título', with: 'Bolo de cenoura'
     select 'Entrada', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Médio'
-    fill_in 'Tempo de Preparo', with: '45'
+    fill_in 'Tempo de preparo', with: '45'
     fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e chocolate'
     fill_in 'Como Preparar', with: 'Faça um bolo e uma cobertura de chocolate'
 
@@ -53,13 +53,13 @@ feature 'User update recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
 
     click_on 'Bolo de cenoura'
     click_on 'Editar'
     fill_in 'Título', with: ''
     fill_in 'Dificuldade', with: ''
-    fill_in 'Tempo de Preparo', with: ''
+    fill_in 'Tempo de preparo', with: ''
     fill_in 'Ingredientes', with: ''
     fill_in 'Como Preparar', with: ''
     click_on 'Enviar'
@@ -100,7 +100,7 @@ feature 'User update recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Bolo de cenoura'
 
     expect(page).not_to have_content('Editar')
@@ -122,7 +122,7 @@ feature 'User update recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     visit edit_recipe_path(recipe.id)
 
     expect(current_path).to eq root_path

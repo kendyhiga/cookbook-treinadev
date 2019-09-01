@@ -1,4 +1,4 @@
-<h1><%= (t 'my_recipes') %></h1>
+<h1><%= "#{(t 'my_recipes')}:" %></h1>
 
 <% if @recipes.any? %>
   <%= render 'recipes/recipes' %>

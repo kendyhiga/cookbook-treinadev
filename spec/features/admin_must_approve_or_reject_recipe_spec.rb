@@ -17,7 +17,7 @@ feature 'Admin must approve or reject recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'admin@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Receitas pendentes'
     click_on 'Bolo de fubá'
     click_on 'Rejeitar'
@@ -41,7 +41,7 @@ feature 'Admin must approve or reject recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'admin@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Receitas pendentes'
     click_on 'Bolo de fubá'
     click_on 'Aceitar'
@@ -65,7 +65,7 @@ feature 'Admin must approve or reject recipe' do
     click_on 'Entrar'
     fill_in 'Email', with: 'user@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Bolo de fubá'
 
     expect(page).not_to have_content('Aceitar')

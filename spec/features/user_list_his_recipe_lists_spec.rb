@@ -14,7 +14,7 @@ feature 'User can list his recipe lists' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
     click_on 'Listas de Alan'
 
@@ -34,7 +34,7 @@ feature 'User can list his recipe lists' do
     click_on 'Entrar'
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Logar'
+    click_on 'Entrar na sua conta'
     click_on 'Meu perfil'
     click_on 'Listas de Alan'
 
