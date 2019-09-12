@@ -36,7 +36,7 @@ describe 'Register recipe' do
     post api_v1_recipes_path(recipe)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json_recipe[:message]).to eq 'Não foi possível salvar a receita'
+    expect(json_recipe[:message]).to eq 'Nao foi possivel salvar a receita'
     expect(response).to have_http_status(406)
   end
 end

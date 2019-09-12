@@ -29,7 +29,7 @@ describe 'Delete recipe' do
     delete api_v1_recipe_path(666)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json_recipe[:message]).to eq 'Receita não encontrada'
+    expect(json_recipe[:message]).to eq 'Receita nao encontrada'
     expect(response).to have_http_status(404)
   end
 end
