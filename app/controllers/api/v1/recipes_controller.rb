@@ -23,7 +23,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
     @recipe = Recipe.find(params[:id])
     render json: @recipe, status: 200
   rescue ActiveRecord::RecordNotFound
-    render json: { message: 'Receita não encontrada'}, status: 404
+    render json: { message: 'Receita nao encontrada'}, status: 404
   end
 
   def create
@@ -31,7 +31,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
     if @recipe.save
       render json: @recipe, status: 201
     else
-      render json: { message: 'Não foi possível salvar a receita' }, status: 406
+      render json: { message: 'Nao foi possivel salvar a receita' }, status: 406
     end
   end
 
@@ -40,7 +40,7 @@ class Api::V1::RecipesController < Api::V1::ApiController
     @recipe.destroy
     render json: @recipe, status: 200
   rescue ActiveRecord::RecordNotFound
-    render json: { message: 'Receita não encontrada'}, status: 404
+    render json: { message: 'Receita nao encontrada'}, status: 404
   end
 
   private
