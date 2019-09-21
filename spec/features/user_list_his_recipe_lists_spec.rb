@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User can list his recipe lists' do
   scenario 'successfully' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456', name: 'Alan')
+    user = User.create(email: 'alan@email.com', password: '123456',
+                       name: 'Alan')
     another_user = User.create(email: 'john.doe@email.com', password: '123456')
     List.create!(name: 'Receitas favoritas', user: user)
     List.create!(name: 'Receitas Vegetarianas', user: user)
@@ -39,6 +42,7 @@ feature 'User can list his recipe lists' do
     click_on 'Listas de Alan'
 
     # Assert
-    expect(page).to have_content('Você não tem nenhuma lista cadastrada em nosso site')
+    expect(page).to have_content('Você não tem nenhuma lista cadastrada em '\
+                                 'nosso site')
   end
 end

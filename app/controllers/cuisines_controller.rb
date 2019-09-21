@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Cuisines Controller
 class CuisinesController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
 
@@ -19,7 +22,9 @@ class CuisinesController < ApplicationController
   def show
     @cuisine = Cuisine.find(params[:id])
     @recipes = Recipe.where(cuisine: @cuisine)
-    flash.now[:failure] = 'Nenhuma receita desta cozinha foi cadastrada ainda' if @recipes.empty?
+    return unless @recipes.empty?
+
+    flash.now[:failure] = 'Nenhuma receita desta cozinha foi cadastrada ainda'
   end
 
   private
@@ -27,5 +32,4 @@ class CuisinesController < ApplicationController
   def cuisine_params
     params.require(:cuisine).permit(:name)
   end
-
 end

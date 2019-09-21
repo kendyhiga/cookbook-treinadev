@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Lists Controller
 class ListsController < ApplicationController
   def new
     redirect_to new_user_session_path unless user_signed_in?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User update recipe' do
@@ -9,8 +11,8 @@ feature 'User update recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, '\
+                               'misture com o restante dos ingredientes',
                   user: user, status: 'accepted')
 
     visit root_path
@@ -25,7 +27,8 @@ feature 'User update recipe' do
     select 'Entrada', from: 'Tipo da Receita'
     fill_in 'Dificuldade', with: 'Médio'
     fill_in 'Tempo de preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e chocolate'
+    fill_in 'Ingredientes', with: 'Cenoura, farinha, ovo, oleo de soja e '\
+                                  'chocolate'
     fill_in 'Como Preparar', with: 'Faça um bolo e uma cobertura de chocolate'
 
     click_on 'Enviar'
@@ -34,8 +37,10 @@ feature 'User update recipe' do
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('td', text: 'Médio')
     expect(page).to have_css('td', text: '45 minutos')
-    expect(page).to have_css('td', text: 'Cenoura, farinha, ovo, oleo de soja e chocolate')
-    expect(page).to have_css('td', text: 'Faça um bolo e uma cobertura de chocolate')
+    expect(page).to have_css('td', text: 'Cenoura, farinha, ovo, oleo de soja '\
+                                         'e chocolate')
+    expect(page).to have_css('td', text: 'Faça um bolo e uma cobertura de '\
+                                         'chocolate')
   end
 
   scenario 'and must fill in all fields' do
@@ -45,7 +50,7 @@ feature 'User update recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, \
                                 misture com o restante dos ingredientes',
                   user: user, status: 'accepted')
 
@@ -74,8 +79,8 @@ feature 'User update recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, '\
+                               'misture com o restante dos ingredientes',
                   user: user, status: 'accepted')
 
     visit root_path
@@ -92,8 +97,8 @@ feature 'User update recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, '\
+                               'misture com o restante dos ingredientes',
                   user: another_user, status: 'accepted')
 
     visit root_path
@@ -112,11 +117,13 @@ feature 'User update recipe' do
     User.create(email: 'alan@email.com', password: '123456')
     another_user = User.create(email: 'john.doe@email.com', password: '123456')
     recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                  recipe_type: recipe_type, cuisine: cuisine,
-                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                misture com o restante dos ingredientes',
-                  user: another_user)
+                           recipe_type: recipe_type, cuisine: cuisine,
+                           cook_time: 50,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços \
+                                         pequenos, misture com o restante dos \
+                                         ingredientes',
+                           user: another_user)
 
     visit root_path
     click_on 'Entrar'

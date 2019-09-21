@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :recipe do
     title { 'Bolo de fubá' }
@@ -6,8 +8,10 @@ FactoryBot.define do
     cuisine
     cook_time { 50 }
     ingredients { 'Farinha, açucar, cenoura' }
-    cook_method { 'Cozinhe a cenoura, corte em pedaços pequenos,\
-      misture com o restante dos ingredientes' }
+    cook_method do
+      'Cozinhe a cenoura, corte em pedaços pequenos,\
+      misture com o restante dos ingredientes'
+    end
     user
   end
 end

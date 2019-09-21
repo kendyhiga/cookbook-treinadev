@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'View recipe details' do
@@ -5,19 +7,17 @@ describe 'View recipe details' do
     user = User.create!(email: 'email@email.com', password: '123456')
     recipe_type = RecipeType.create!(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Brasileira')
-    recipe = Recipe.create!(user: user, title: 'Bolodecenoura', difficulty: 'Médio',
-                            recipe_type: recipe_type, cuisine: cuisine,
-                            cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                            cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
+    recipe = create(:recipe, user: user, recipe_type: recipe_type,
+                             cuisine: cuisine)
 
     get api_v1_recipe_path(1)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
-    # expect(json_recipe[:user]).to eq recipe.user
+    expect(json_recipe[:user_id]).to eq recipe.user.id
     expect(json_recipe[:title]).to eq recipe.title
     expect(json_recipe[:difficulty]).to eq recipe.difficulty
-    # expect(json_recipe[:recipe_type]).to eq recipe.recipe_type
-    # expect(json_recipe[:cuisine]).to eq recipe.cuisine
+    expect(json_recipe[:recipe_type_id]).to eq recipe.recipe_type.id
+    expect(json_recipe[:cuisine_id]).to eq recipe.cuisine.id
     expect(json_recipe[:cook_time]).to eq recipe.cook_time
     expect(json_recipe[:ingredients]).to eq recipe.ingredients
     expect(json_recipe[:cook_method]).to eq recipe.cook_method

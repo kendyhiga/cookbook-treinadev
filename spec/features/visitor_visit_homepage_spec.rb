@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Visitor visit homepage' do
@@ -9,20 +11,12 @@ feature 'Visitor visit homepage' do
 
   scenario 'and view recipe' do
     # cria os dados necessarios
-    recipe_type = RecipeType.create(name: 'Sobremesa')
-    cuisine = Cuisine.create(name: 'Italiana')
-    user = User.create(email: 'alan@email.com', password: '123456')
-    recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                           recipe_type: recipe_type, cuisine: cuisine,
-                           cook_time: 50,
-                           ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                           user: user, status: 'accepted')
+    recipe = create(:recipe, status: 'accepted')
 
     # simula a acao do usuario
     visit root_path
 
-    # expectativas do usuário após a ação
+    # expectativas do usuario apos a acao
     expect(page).to have_css('p', text: recipe.title)
     expect(page).to have_css('p', text: recipe.cuisine.name)
     expect(page).to have_css('p', text: recipe.difficulty)
@@ -39,37 +33,37 @@ feature 'Visitor visit homepage' do
                            recipe_type: recipe_type, cuisine: cuisine,
                            cook_time: 50,
                            ingredients: 'Farinha, açucar, cenoura',
-                           cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços \
+                                         pequenos, misture com os ingredientes',
                            user: user, status: 'accepted')
-
-    another_recipe = Recipe.create(title: 'Feijoada',
-                                   recipe_type: another_recipe_type,
-                                   cuisine: another_cuisine, difficulty: 'Difícil',
-                                   cook_time: 90,
-                                   ingredients: 'Feijão e carnes',
-                                   cook_method: 'Misture o feijão com as carnes',
-                                   user: user, status: 'accepted')
+    other_recipe = Recipe.create(title: 'Feijoada',
+                                 recipe_type: another_recipe_type,
+                                 cuisine: another_cuisine, difficulty: 'Facil',
+                                 cook_time: 90,
+                                 ingredients: 'Feijão e carnes',
+                                 cook_method: 'Misture o feijão com as carnes',
+                                 user: user, status: 'accepted')
 
     # simula a acao do usuario
     visit root_path
 
-    # expectativas do usuario após a ação
+    # expectativas do usuario apos a acao
     expect(page).to have_css('p', text: recipe.title)
     expect(page).to have_css('p', text: recipe.cuisine.name)
     expect(page).to have_css('p', text: recipe.difficulty)
 
-    expect(page).to have_css('p', text: another_recipe.title)
-    expect(page).to have_css('p', text: another_recipe.cuisine.name)
-    expect(page).to have_css('p', text: another_recipe.difficulty)
+    expect(page).to have_css('p', text: other_recipe.title)
+    expect(page).to have_css('p', text: other_recipe.cuisine.name)
+    expect(page).to have_css('p', text: other_recipe.difficulty)
   end
 
   scenario 'cannot see the users navbar links' do
-    #Arrage
+    # Arrage
 
-    #Act
+    # Act
     visit root_path
 
-    #Assert
+    # Assert
     expect(page).to have_content('Início')
     expect(page).to have_content('Entrar')
     expect(page).not_to have_content('Minhas receitas')
@@ -79,7 +73,7 @@ feature 'Visitor visit homepage' do
   end
 
   scenario 'and view only accepted recipes' do
-    #cria os dados necessários
+    # Cria os dados necessarios
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
     user = User.create(email: 'alan@email.com', password: '123456')
@@ -87,27 +81,27 @@ feature 'Visitor visit homepage' do
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50,
                   ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte e misture',
                   user: user, status: 'accepted')
     Recipe.create(title: 'Bolo de chocolate', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50,
                   ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte e misture',
                   user: user, status: 'pending')
     Recipe.create(title: 'Bolo de fubá', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50,
                   ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte e misture',
                   user: user, status: 'rejected')
     Recipe.create(title: 'Bolo de laranja', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50,
                   ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte e misture',
                   user: user, status: 'accepted')
-    # simula a acao do usuário
+    # simula a acao do usuario
     visit root_path
 
     # expectativas do usuario apos a acao

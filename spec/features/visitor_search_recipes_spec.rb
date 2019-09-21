@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Visitor search for recipes' do
@@ -8,13 +10,13 @@ feature 'Visitor search for recipes' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
                   user: user)
     Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, queijo',
-                    cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                    user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, queijo',
+                  cook_method: 'Misture, corte em pedaços pequenos',
+                  user: user)
 
     visit root_path
     click_on 'Pesquisar no site'
@@ -33,7 +35,7 @@ feature 'Visitor search for recipes' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
                   user: user)
 
     visit root_path
@@ -53,7 +55,7 @@ feature 'Visitor search for recipes' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
                   user: user)
 
     visit root_path
@@ -73,23 +75,23 @@ feature 'Visitor search for recipes' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
                   user: user)
     Recipe.create(title: 'Bolo de Fubá', difficulty: 'Médio',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                    user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
+                  user: user)
     Recipe.create(title: 'Bolo de Chocolate', difficulty: 'Médio',
-                      recipe_type: recipe_type, cuisine: cuisine,
-                      cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                      cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                      user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
+                  user: user)
     Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
-                        recipe_type: recipe_type, cuisine: cuisine,
-                        cook_time: 50, ingredients: 'Farinha, açucar, queijo',
-                        cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                        user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, queijo',
+                  cook_method: 'Misture, corte em pedaços pequenos',
+                  user: user)
 
     visit root_path
     click_on 'Pesquisar no site'

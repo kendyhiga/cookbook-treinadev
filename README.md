@@ -18,4 +18,8 @@
 - [x] **Added Warden gem**
 - [x] **Added FactoryBot gem**
 - [x] **Added Travis CI**
+- [x] **Added database_cleaner gem**
+- [x] **Added Rubocop gem**
+- [x] **All Rubocop offenses solved**
+- [x] **Rubocop now required to merge commits into master**
 - [ ] **Added WebMock gem**

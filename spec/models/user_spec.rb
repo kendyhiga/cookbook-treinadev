@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -10,12 +12,8 @@ RSpec.describe User, type: :model do
       recipe_type = RecipeType.create(name: 'Sobremesa')
       cuisine = Cuisine.create(name: 'Brasileira')
       user = User.create(email: 'alan@email.com', password: '123456')
-      recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                  misture com o restante dos ingredientes',
-                    user: user)
+      recipe = create(:recipe, recipe_type: recipe_type, cuisine: cuisine,
+                               user: user)
 
       expect(user.can_edit?(recipe)).to eq true
     end
@@ -24,13 +22,9 @@ RSpec.describe User, type: :model do
       recipe_type = RecipeType.create(name: 'Sobremesa')
       cuisine = Cuisine.create(name: 'Brasileira')
       user = User.create(email: 'alan@email.com', password: '123456')
-      another_user = User.create(email: 'john.doe@email.com', password: '123456')
-      recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                  misture com o restante dos ingredientes',
-                    user: another_user)
+      other_user = User.create(email: 'john.doe@email.com', password: '123456')
+      recipe = create(:recipe, recipe_type: recipe_type, cuisine: cuisine,
+                               user: other_user)
 
       expect(user.can_edit?(recipe)).to eq false
     end
@@ -39,15 +33,11 @@ RSpec.describe User, type: :model do
       recipe_type = RecipeType.create(name: 'Sobremesa')
       cuisine = Cuisine.create(name: 'Brasileira')
       user = User.create(email: 'alan@email.com', password: '123456')
-      another_user = User.create(email: 'john.doe@email.com', password: '123456')
-      recipe = Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos,\
-                                  misture com o restante dos ingredientes',
-                    user: another_user)
+      other_user = User.create(email: 'john.doe@email.com', password: '123456')
+      create(:recipe, recipe_type: recipe_type, cuisine: cuisine,
+                      user: other_user)
 
-      expect(user.can_edit?()).to eq false
+      expect(user.can_edit?).to eq false
     end
   end
 end
