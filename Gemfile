@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 gem 'devise'
 
 gem 'bootstrap', '~> 4.3.1'
@@ -33,6 +34,9 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 gem 'simplecov', require: false, group: :test
+
+gem 'travis'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
