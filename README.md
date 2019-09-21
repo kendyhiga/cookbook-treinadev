@@ -17,5 +17,5 @@
 - [x] **Added SimpleCov gem**
 - [x] **Added Warden gem**
 - [x] **Added FactoryBot gem**
-- [ ] **Added Travis CI**
+- [x] **Added Travis CI**
 - [ ] **Added WebMock gem**
