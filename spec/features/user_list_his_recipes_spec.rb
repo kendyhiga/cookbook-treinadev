@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User can list his recipes' do
@@ -10,23 +12,23 @@ feature 'User can list his recipes' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
                   user: user)
     Recipe.create(title: 'Bolo de Fubá', difficulty: 'Médio',
-                    recipe_type: recipe_type, cuisine: cuisine,
-                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                    user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
+                  user: user)
     Recipe.create(title: 'Bolo de Chocolate', difficulty: 'Médio',
-                      recipe_type: recipe_type, cuisine: cuisine,
-                      cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                      cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                      user: user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos',
+                  user: user)
     Recipe.create(title: 'Pão de Queijo', difficulty: 'Fácil',
-                        recipe_type: recipe_type, cuisine: cuisine,
-                        cook_time: 50, ingredients: 'Farinha, açucar, queijo',
-                        cook_method: 'Misture, corte em pedaços pequenos, misture com o restante dos ingredientes',
-                        user: other_user)
+                  recipe_type: recipe_type, cuisine: cuisine,
+                  cook_time: 50, ingredients: 'Farinha, açucar, queijo',
+                  cook_method: 'Misture, corte em pedaços pequenos',
+                  user: other_user)
 
     # Act
     visit root_path
@@ -57,6 +59,7 @@ feature 'User can list his recipes' do
     click_on 'Minhas receitas'
 
     # Assert
-    expect(page).to have_content('Você não tem nenhuma receita cadastrada em nosso site')
+    expect(page).to have_content('Você não tem nenhuma receita cadastrada em '\
+                                 'nosso site')
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User filter recipes' do
@@ -44,7 +46,8 @@ feature 'User filter recipes' do
       visit root_path
       click_on 'Sobremesa'
 
-      expect(page).to have_content('Nenhuma receita deste tipo foi cadastrada ainda')
+      expect(page).to have_content('Nenhuma receita deste tipo foi cadastrada '\
+                                   'ainda')
     end
   end
 
@@ -91,7 +94,8 @@ feature 'User filter recipes' do
       visit root_path
       click_on 'Brasileira'
 
-      expect(page).to have_content('Nenhuma receita desta cozinha foi cadastrada ainda')
+      expect(page).to have_content('Nenhuma receita desta cozinha foi '\
+                                   'cadastrada ainda')
     end
   end
 end

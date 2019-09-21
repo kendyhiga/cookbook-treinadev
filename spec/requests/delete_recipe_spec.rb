@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Delete recipe' do
   it 'successfully' do
-    user = User.create!(email: 'email@email.com', password: '123456')
-    recipe_type = RecipeType.create!(name: 'Sobremesa')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe = Recipe.create!(user: user, title: 'Bolodecenoura', difficulty: 'Médio',
-                            recipe_type: recipe_type, cuisine: cuisine,
-                            cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                            cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
+    user = create(:user)
+    recipe_type = create(:recipe_type)
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe = create(:recipe, user: user, recipe_type: recipe_type,
+                             cuisine: cuisine)
 
     delete api_v1_recipe_path(recipe.id)
     json_recipe = JSON.parse(response.body, symbolize_names: true)

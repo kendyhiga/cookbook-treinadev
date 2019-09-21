@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User can add recipes to his list' do
   scenario 'successfully' do
     # Arrange
-    user = User.create(email: 'alan@email.com', password: '123456', name: 'Alan')
+    user = User.create(email: 'alan@email.com', password: '123456',
+                       name: 'Alan')
     List.create!(name: 'Receitas low-carb', user: user)
     list = List.create!(name: 'Receitas favoritas', user: user)
     recipe_type = RecipeType.create(name: 'Sobremesa')

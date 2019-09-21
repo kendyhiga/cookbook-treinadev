@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User is able to log in' do
@@ -34,7 +36,7 @@ feature 'User is able to log in' do
 
     # Assert
     expect(page).to have_content('Entrar')
-    expect(page).not_to have_content("Você esta logado como: alan@email.com")
+    expect(page).not_to have_content('Você esta logado como: alan@email.com')
     expect(page).not_to have_content('Sair')
   end
 end

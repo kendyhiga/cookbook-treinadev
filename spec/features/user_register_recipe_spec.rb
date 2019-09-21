@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User register recipe' do
   scenario 'successfully' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     RecipeType.create(name: 'Sobremesa')
     RecipeType.create(name: 'Entrada')
     Cuisine.create(name: 'Brasileira')
@@ -22,8 +24,8 @@ feature 'User register recipe' do
     select 'Arabe', from: 'Cozinha'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
-    fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
+    fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate'
+    fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão'
     click_on 'Enviar'
 
     # expectativas
@@ -33,11 +35,12 @@ feature 'User register recipe' do
     expect(page).to have_css('td', text: 'Entrada')
     expect(page).to have_css('td', text: 'Arabe')
     expect(page).to have_css('td', text: 'Fácil')
-    expect(page).to have_css('td', text: "45 minutos")
+    expect(page).to have_css('td', text: '45 minutos')
     expect(page).to have_css('td', text: 'Ingredientes')
-    expect(page).to have_css('td', text: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha')
+    expect(page).to have_css('td', text: 'Trigo para quibe, cebola, tomate')
     expect(page).to have_css('td', text: 'Como Preparar')
-    expect(page).to have_css('td', text:  'Misturar tudo e servir. Adicione limão a gosto.')
+    expect(page).to have_css('td', text: 'Misturar tudo e servir. Adicione '\
+                                         'limão')
   end
 
   scenario 'and must fill in all fields' do
@@ -70,7 +73,7 @@ feature 'User register recipe' do
   end
 
   scenario 'and the status must be pending' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
+    # cria os dados necessários, nesse caso não vamos criar dados no banco
     RecipeType.create(name: 'Sobremesa')
     RecipeType.create(name: 'Entrada')
     Cuisine.create(name: 'Brasileira')
@@ -90,8 +93,8 @@ feature 'User register recipe' do
     select 'Arabe', from: 'Cozinha'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de preparo', with: '45'
-    fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
-    fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
+    fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate'
+    fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão'
     click_on 'Enviar'
 
     # expectativas
@@ -103,10 +106,12 @@ feature 'User register recipe' do
     expect(page).to have_css('td', text: 'Fácil')
     expect(page).to have_css('td', text: '45 minutos')
     expect(page).to have_css('td', text: 'Ingredientes')
-    expect(page).to have_css('td', text: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha')
+    expect(page).to have_css('td', text: 'Trigo para quibe, cebola, tomate')
     expect(page).to have_css('td', text: 'Como Preparar')
-    expect(page).to have_css('td', text:  'Misturar tudo e servir. Adicione limão a gosto.')
-    expect(page).to have_content('Receita esta pendente, aguardando aprovação dos administradores')
+    expect(page).to have_css('td', text: 'Misturar tudo e servir. Adicione '\
+                                         'limão')
+    expect(page).to have_content('Receita esta pendente, aguardando '\
+                                 'aprovação dos administradores')
     expect(Recipe.first.status).to eq('pending')
   end
 end

@@ -1,24 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'List recipes by recipe type' do
   it 'returns a json' do
-    user = User.create!(email: 'email@email.com', password: '123456')
-    recipe_type = RecipeType.create!(name: 'Sobremesa')
-    other_recipe_type = RecipeType.create!(name: 'Salgado')
-    cuisine = Cuisine.create(name: 'Brasileira')
-    recipe = Recipe.create!(user: user, title: 'Bolo de cenoura', difficulty: 'Médio',
-                            recipe_type: recipe_type, cuisine: cuisine,
-                            cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                            cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
-    Recipe.create!(user: user, title: 'Bolo de laranja', difficulty: 'Médio',
-                                  recipe_type: other_recipe_type, cuisine: cuisine,
-                                  cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
-    other_recipe = Recipe.create!(user: user, title: 'Bolo de limão', difficulty: 'Médio',
-                                    recipe_type: recipe_type, cuisine: cuisine,
-                                    cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                                    cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos')
-  
+    user = create(:user)
+    recipe_type = create(:recipe_type)
+    other_recipe_type = create(:recipe_type, name: 'Salgado')
+    cuisine = create(:cuisine, name: 'Brasileira')
+    recipe = create(:recipe, user: user, recipe_type: recipe_type,
+                             cuisine: cuisine)
+    other_recipe = create(:recipe, user: user, title: 'Bolo de limão',
+                                   recipe_type: recipe_type, cuisine: cuisine)
+    create(:recipe, user: user, title: 'Bolo de laranja',
+                    recipe_type: other_recipe_type, cuisine: cuisine)
+
     get "/api/v1/recipe_types/#{recipe_type.id}"
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 
