@@ -1,8 +1,19 @@
 language: ruby
+
 rvm:
-- 2.6.3
+  - 2.6.3
+
+env:
+  global:
+    - RAILS_ENV=test
+
+before_install:
+  - gem install bundler
+
+before_script:
+  - gem install bundle-audit
+
 script:
- — bundle install — jobs=3 — retry=3
- — bundle exec rake db:create
- — bundle exec rake db:migrate
- — bundle exec rspec
+  - RAILS_ENV=test bundle exec rake db:test:prepare
+  - bundle exec rspec
+  - bundle-audit check --update
