@@ -64,3 +64,6 @@ en:
   register_new_list: Register new list
   name: Name
   remove_from_list: Remove from list
+
+  action: Action
+  recipe: Recipe

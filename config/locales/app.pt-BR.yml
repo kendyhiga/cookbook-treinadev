@@ -64,3 +64,6 @@ pt-BR:
   register_new_list: Cadastrar nova lista
   name: Nome
   remove_from_list: Remover da lista
+
+  action: Ação
+  recipe: Receita
