@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/kendyhiga/cookbook-treinadev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b9ad31b11fe463f880ad/maintainability" /></a>
+
 # Project's progress overview
 
 - [x] **Added Rspec gem**
@@ -22,4 +24,5 @@
 - [x] **Added Rubocop gem**
 - [x] **All Rubocop offenses solved**
 - [x] **Rubocop now required to merge commits into master**
+- [x] **Started using Code Climate to help evaluate the code quality**
 - [ ] **Added WebMock gem**
