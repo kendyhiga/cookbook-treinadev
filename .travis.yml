@@ -6,15 +6,22 @@ rvm:
 env:
   global:
     - RAILS_ENV=test
+    - CC_TEST_REPORTER_ID=ff58782d857310fd33390a1fe68b11496451d986f1f3fc0dbb08cd90ec6488f0
 
 before_install:
   - gem install bundler
 
 before_script:
   - gem install bundle-audit
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - RAILS_ENV=test bundle exec rake db:test:prepare
   - bundle exec rspec
   - bundle exec rubocop --config .rubocop.yml
   - bundle-audit check --update
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
