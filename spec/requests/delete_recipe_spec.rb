@@ -14,11 +14,11 @@ describe 'Delete recipe' do
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
     expect(Recipe.find_by(id: recipe.id)).to eq nil
-    expect(json_recipe[:user_id]).to eq 1
+    expect(json_recipe[:user_id]).to eq user.id
     expect(json_recipe[:title]).to eq recipe.title
     expect(json_recipe[:difficulty]).to eq recipe.difficulty
-    expect(json_recipe[:recipe_type_id]).to eq 1
-    expect(json_recipe[:cuisine_id]).to eq 1
+    expect(json_recipe[:recipe_type_id]).to eq recipe_type.id
+    expect(json_recipe[:cuisine_id]).to eq cuisine.id
     expect(json_recipe[:cook_time]).to eq recipe.cook_time
     expect(json_recipe[:ingredients]).to eq recipe.ingredients
     expect(json_recipe[:cook_method]).to eq recipe.cook_method

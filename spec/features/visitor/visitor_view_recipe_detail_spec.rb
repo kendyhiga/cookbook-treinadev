@@ -61,16 +61,16 @@ feature 'Visitor view recipe details' do
     recipe_type = RecipeType.create(name: 'Sobremesa')
     cuisine = Cuisine.create(name: 'Italiana')
     user = User.create(email: 'alan@email.com', password: '123456')
-    Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
-                  cuisine: cuisine, difficulty: 'Médio',
-                  cook_time: 60,
-                  ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços
-                  pequenos, misture com o restante dos ingredientes',
-                  user: user, status: 'pending')
+    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
+                           cuisine: cuisine, difficulty: 'Médio',
+                           cook_time: 60,
+                           ingredients: 'Farinha, açucar, cenoura',
+                           cook_method: 'Cozinhe a cenoura, corte em pedaços
+                           pequenos, misture com o restante dos ingredientes',
+                           user: user, status: 'pending')
 
     # simula a acao do usuário
-    visit '/recipes/1/'
+    visit "/recipes/#{recipe.id}/"
 
     # expectativa da rota atual
     expect(current_path).to eq(root_path)
