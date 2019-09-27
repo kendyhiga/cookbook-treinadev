@@ -4,12 +4,9 @@
   <%= flash[:failure] %>
 <% end %>
 
-<%= form_for @cuisine do |f| %>
-
-  <%= f.label :name, 'Nome' %>
+<%= bootstrap_form_for @cuisine, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4"  do |f| %>
   <%= f.text_field :name %>
-
   <%= f.submit 'Cadastrar' %>
 <% end %>
-
+<br>
 <%= link_to (t 'back'), root_path %>
