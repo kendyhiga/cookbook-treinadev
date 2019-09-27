@@ -1,4 +1,5 @@
 <a href="https://codeclimate.com/github/kendyhiga/cookbook-treinadev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b9ad31b11fe463f880ad/maintainability" /></a>
+<a href="https://codeclimate.com/github/kendyhiga/cookbook-treinadev/test_coverage"><img src="https://api.codeclimate.com/v1/badges/b9ad31b11fe463f880ad/test_coverage" /></a>
 
 # Project's progress overview
 
