@@ -17,6 +17,9 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
+services:
+  - postgresql
+
 script:
   - RAILS_ENV=test bundle exec rake db:test:prepare
   - bundle exec rspec

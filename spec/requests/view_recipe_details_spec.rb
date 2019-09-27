@@ -10,7 +10,7 @@ describe 'View recipe details' do
     recipe = create(:recipe, user: user, recipe_type: recipe_type,
                              cuisine: cuisine)
 
-    get api_v1_recipe_path(1)
+    get api_v1_recipe_path(recipe.id)
     json_recipe = JSON.parse(response.body, symbolize_names: true)
 
     expect(json_recipe[:user_id]).to eq recipe.user.id
