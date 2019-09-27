@@ -26,4 +26,5 @@
 - [x] **All Rubocop offenses solved**
 - [x] **Rubocop now required to merge commits into master**
 - [x] **Started using Code Climate to help evaluate the code quality**
+- [x] **Added Bootstrap Form gem**
 - [ ] **Added WebMock gem**

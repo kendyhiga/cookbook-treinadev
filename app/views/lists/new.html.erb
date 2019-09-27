@@ -4,12 +4,9 @@
   <%= flash[:failure] %>
 <% end %>
 
-<%= form_for @list do |f| %>
-
-  <%= f.label :name, (t 'name') %>
+<%= bootstrap_form_for @list, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4"  do |f| %>
   <%= f.text_field :name %>
-
   <%= f.submit (t 'register') %>
 <% end %>
-
+<br>
 <%= link_to (t 'back'), root_path %>

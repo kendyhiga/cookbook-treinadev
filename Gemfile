@@ -39,6 +39,8 @@ gem 'simplecov', require: false, group: :test
 
 gem 'travis'
 
+gem 'bootstrap_form', '~> 4.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

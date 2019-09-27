@@ -2,44 +2,16 @@
   <%= flash[:failure] %>
 <% end %>
 
-<%= form_for @recipe do |f| %>
-  <table>
-    <tr>
-      <td><%= f.label :title, (t 'title') %></td>
-      <td><%= f.text_field :title %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :recipe_type_id, (t 'recipe_type') %></td>
-      <td><%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :cuisine_id, (t 'cuisine') %></td>
-      <td><%= f.collection_select :cuisine_id, @cuisines, :id, :name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :difficulty, (t 'difficulty') %></td>
-      <td><%= f.text_field :difficulty %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :cook_time, (t 'cook_time') %></td>
-      <td><%= f.number_field :cook_time %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :ingredients, (t 'ingredients') %></td>
-      <td><%= f.text_area :ingredients %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :cook_method, (t 'cook_method') %></td>
-      <td><%= f.text_area :cook_method %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :image, (t 'image') %></td>
-      <td><%= f.file_field :image %></td>
-    </tr>
-    <tr>
-      <td><%= f.submit (t 'submit') %></td>
-    </tr>
-  </table>
+<%= bootstrap_form_for @recipe, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4" do |f| %>
+  <%= f.text_field :title %>
+  <%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %>
+  <%= f.collection_select :cuisine_id, @cuisines, :id, :name %>
+  <%= f.text_field :difficulty %>
+  <%= f.number_field :cook_time %>
+  <%= f.text_area :ingredients %>
+  <%= f.text_area :cook_method %>
+  <%= f.file_field :image %>
+  <%= f.submit (t 'submit') %>
 <% end %>
-
+<br>
 <%= link_to (t 'back'), root_path %>
