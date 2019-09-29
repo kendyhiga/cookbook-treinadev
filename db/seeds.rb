@@ -1,4 +1,4 @@
-admin = User.create(name: 'Admin', email: 'admin@email.com', password: '123456')
+admin = User.create(name: 'Admin', email: 'admin@email.com', password: '123456', admin: true)
 user = User.create(name: 'John Doe', email: 'user@email.com', password: '123456')
 other_user = User.create(name: 'Meg Adeth', email: 'other.user@email.com', password: '123456')
 another_user = User.create(name: 'Loren Ipsum', email: 'another.user@email.com', password: '123456')
