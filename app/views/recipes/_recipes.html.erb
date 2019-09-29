@@ -1,7 +1,7 @@
 <% @recipes.each do |recipe| %>
   <div class='row'>
     <div class='col-3'>
-      <%= image_tag recipe.image, class: 'small-recipe-img' if recipe.image.attached? %>
+      <%= image_tag recipe.image_url, class: 'small-recipe-img' if recipe.image_url %>
     </div>
     <div class='col-3'>
       <p><%= link_to recipe.title, recipe, class: 'link' %></p>

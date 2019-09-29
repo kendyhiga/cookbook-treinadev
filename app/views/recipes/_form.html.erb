@@ -2,7 +2,7 @@
   <%= flash[:failure] %>
 <% end %>
 
-<%= bootstrap_form_for @recipe, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4" do |f| %>
+<%= bootstrap_form_for @recipe, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4" do |f| %>
   <%= f.text_field :title %>
   <%= f.collection_select :recipe_type_id, @recipe_types, :id, :name %>
   <%= f.collection_select :cuisine_id, @cuisines, :id, :name %>
@@ -10,7 +10,7 @@
   <%= f.number_field :cook_time %>
   <%= f.text_area :ingredients %>
   <%= f.text_area :cook_method %>
-  <%= f.file_field :image %>
+  <%= f.text_field :image_url %>
   <%= f.submit (t 'submit') %>
 <% end %>
 <br>
