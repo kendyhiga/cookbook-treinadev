@@ -2,7 +2,7 @@
   <div class='col'>
     <h1><%= @recipe.title %></h1>
 
-    <% if current_user == @recipe.user %>
+    <% if current_user == @recipe.user || current_user.try(:admin?) %>
       <%= link_to (t 'edit'), edit_recipe_path %>
     <% end %>
 

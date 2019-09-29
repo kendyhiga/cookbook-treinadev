@@ -12,6 +12,6 @@ class User < ApplicationRecord
   def can_edit?(recipe = nil)
     return false if recipe.nil?
 
-    (recipe && self) == recipe.user
+    (recipe && self) == recipe.user || admin?
   end
 end
