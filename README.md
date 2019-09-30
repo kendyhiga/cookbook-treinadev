@@ -1,6 +1,9 @@
 <a href="https://codeclimate.com/github/kendyhiga/cookbook-treinadev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b9ad31b11fe463f880ad/maintainability" /></a>
 <a href="https://codeclimate.com/github/kendyhiga/cookbook-treinadev/test_coverage"><img src="https://api.codeclimate.com/v1/badges/b9ad31b11fe463f880ad/test_coverage" /></a>
 
+### Heroku Deployed Application:
+- <a href="http://cookbook-practice.herokuapp.com">http://cookbook-practice.herokuapp.com</a>
+
 # Project's progress overview
 
 - [x] **Added Rspec gem**
@@ -27,4 +30,6 @@
 - [x] **Rubocop now required to merge commits into master**
 - [x] **Started using Code Climate to help evaluate the code quality**
 - [x] **Added Bootstrap Form gem**
+- [x] **Changed database from SQLite to PostgreSQL**
+- [x] **Deploy to Heroku**
 - [ ] **Added WebMock gem**
