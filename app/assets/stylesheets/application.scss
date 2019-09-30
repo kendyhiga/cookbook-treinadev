@@ -17,6 +17,7 @@
 
 body {
   background-color: white;
+  font-family: 'Quicksand', sans-serif;
 }
 
 button {
@@ -28,29 +29,36 @@ button {
   margin-right: 30px;
 }
 
-.nav-bar-link{
-  background-color: rgb(215, 215, 215);
+.content{
+  padding-top: 15px;
+}
+// 
 
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+#logo{
+  color: rgb(218, 52, 31);
+}
+.navbar-main{
+  background-color: rgb(255, 227, 102);
+  box-shadow: 8px 8px 5px grey;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.nav-bar-link{
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
   color: black;
   font-size: 16px;
   padding: 9px;
 }
 a:hover.nav-bar-link{
-  background-color: black;
+  background-color: rgb(218, 52, 31);
   color: white;
 }
 
 .nav-bar-link-left{
-  background-color: rgb(215, 215, 215);
-
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   color: black;
@@ -59,17 +67,13 @@ a:hover.nav-bar-link{
   padding-left: 12px;
 }
 a:hover.nav-bar-link-left{
-  background-color: black;
+  background-color: rgb(218, 52, 31);
   color: white;
 }
 
 .nav-bar-link-right{
-  background-color: rgb(215, 215, 215);
-
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   color: black;
@@ -77,10 +81,13 @@ a:hover.nav-bar-link-left{
   padding: 9px;
   padding-right: 12px;
 }
+
 a:hover.nav-bar-link-right{
-  background-color: black;
+  background-color: rgb(218, 52, 31);
   color: white;
 }
+
+// Side Menu
 
 .side-menu-topic {
   margin-left: 10px;
