@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -22,7 +24,9 @@
         <div class="col">
           <%= flash[:notice] %>
           <%= flash[:alert] %>
-          <%= yield %>
+          <div class="content">
+            <%= yield %>
+          </div>
         </div>
 
       </div>
