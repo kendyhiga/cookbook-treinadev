@@ -22,3 +22,5 @@ pt-BR:
         name: Nome
       list:
         name: Nome
+      user:
+        name: Nome
