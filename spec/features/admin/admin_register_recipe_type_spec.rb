@@ -92,6 +92,6 @@ feature 'Admin register recipe_type' do
     visit new_recipe_type_path
 
     # Assert
-    expect(current_path).to eq root_path
+    expect(current_path).to eq('/pt-BR')
   end
 end

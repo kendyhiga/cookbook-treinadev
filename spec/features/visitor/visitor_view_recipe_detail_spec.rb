@@ -53,7 +53,7 @@ feature 'Visitor view recipe details' do
     click_on 'Voltar'
 
     # expectativa da rota atual
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq('/pt-BR')
   end
 
   scenario 'and cant access a non accepted recipe, if he is not the owner' do
@@ -73,6 +73,6 @@ feature 'Visitor view recipe details' do
     visit "/recipes/#{recipe.id}/"
 
     # expectativa da rota atual
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq('/pt-BR')
   end
 end

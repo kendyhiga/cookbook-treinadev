@@ -92,6 +92,6 @@ feature 'Admin register cuisine' do
     visit new_cuisine_path
 
     # Assert
-    expect(current_path).to eq root_path
+    expect(current_path).to eq('/pt-BR')
   end
 end
