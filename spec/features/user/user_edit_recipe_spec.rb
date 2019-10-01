@@ -130,8 +130,8 @@ feature 'User update recipe' do
     fill_in 'Email', with: 'alan@email.com'
     fill_in 'Senha', with: '123456'
     click_on 'Entrar na sua conta'
-    visit edit_recipe_path(recipe.id)
+    visit "/pt-BR/recipes/#{recipe.id}/edit"
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq('/pt-BR')
   end
 end

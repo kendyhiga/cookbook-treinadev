@@ -23,8 +23,8 @@ feature 'User can view his profile' do
   scenario 'and the visitor cannot force visit the url link' do
     user = create(:user, email: 'john.doe1@email.com', admin: true)
 
-    visit user_path(user.id)
+    visit "/pt-BR/users/#{user.id}"
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq('/pt-BR')
   end
 end

@@ -68,3 +68,5 @@ en:
   action: Action
   recipe: Recipe
   sign_up: Sign Up
+
+  you_have_no_recipes: You have no recipes registered on our site
