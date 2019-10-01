@@ -5,6 +5,7 @@ en:
   my_profile: My profile
   signin: Sign in
   signout: Sign out
+  about: About
 
   signup: Sign up
   password: Password
@@ -70,3 +71,6 @@ en:
   sign_up: Sign Up
 
   you_have_no_recipes: You have no recipes registered on our site
+
+  about_text_intro: This site was made with the purpose of learn, practice and secure the concepts of web programming, as seen on courses, articles and several sources. 
+  about_text_disclaimer: Feel free to criticize, suggest improvements or randomly comment! You can find my contacts (Github, Linkedin) on the footer.

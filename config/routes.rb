@@ -10,13 +10,14 @@ Rails.application.routes.draw do
     resources :recipe_lists, only: %i[create]
     resources :users, only: %i[show]
 
-    get 'recipe/all', to: 'recipes#all', as: 'all_recipes'
-    get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
     get 'search', to: 'users#search'
+    get 'about', to: 'pages#about'
 
     get 'user/:id/lists', to: 'users#lists', as: 'user_lists'
     delete 'list/:id/recipe/(.:recipe_id)', to: 'recipe_lists#destroy', as: 'remove_recipe_from_list'
 
+    get 'recipe/all', to: 'recipes#all', as: 'all_recipes'
+    get 'user/my_recipes', to: 'users#my_recipes', as: 'my_recipes'
     get 'pending_recipes', to: 'recipes#pending_line', as: 'pending_recipes'
     get 'recipe/:id/reject', to: 'users#reject_recipe', as: 'reject_recipe'
     get 'recipe/:id/accept', to: 'users#accept_recipe', as: 'accept_recipe'
