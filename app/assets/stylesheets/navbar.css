@@ -1,0 +1,48 @@
+#logo {
+  color: #da341f;
+}
+.navbar-main {
+  background-color: #ffe366;
+  box-shadow: 8px 8px 5px grey;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.nav-bar-link {
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+}
+a:hover.nav-bar-link {
+  background-color: #da341f;
+  color: white;
+}
+.nav-bar-link-left {
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+  padding-left: 12px;
+}
+a:hover.nav-bar-link-left {
+  background-color: #da341f;
+  color: white;
+}
+.nav-bar-link-right {
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+  padding-right: 12px;
+}
+a:hover.nav-bar-link-right {
+  background-color: #da341f;
+  color: white;
+}

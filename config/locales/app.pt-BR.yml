@@ -5,6 +5,7 @@ pt-BR:
   my_profile: Meu perfil
   signin: Entrar
   signout: Sair
+  about: Sobre
 
   signup: Cadastrar-se
   password: Senha
@@ -70,3 +71,6 @@ pt-BR:
   sign_up: Registrar-se
 
   you_have_no_recipes: Você não tem nenhuma receita cadastrada em nosso site
+
+  about_text_intro: Este site foi feito com intuito de aprender, praticar e fixar os conceitos de programação web, vistos em cursos, artigos e materiais diversos.
+  about_text_disclaimer: Sinta-se livre para criticar, sugerir melhorias ou opinar aleatóriamente! Você pode encontrar meus contatos (Github, Linkedin) no rodapé.
