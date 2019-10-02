@@ -41,6 +41,8 @@ pt-BR:
   reject: Rejeitar
   pending_recipe_disclaimer: Receita esta pendente, aguardando aprovação dos administradores
   register_new_recipe: Cadastrar nova receita
+  register_new_cuisine: Cadastrar nova cozinha
+  register_new_recipe_type: Cadastrar novo tipo de receita
   edit_recipe: Editar a receita
 
   all_recipes: Todas as receitas
@@ -85,3 +87,8 @@ pt-BR:
 
   success: Sucesso
   failure: Falha
+
+  no_recipe_registered_in_cuisine_yet: Nenhuma receita desta cozinha foi cadastrada ainda
+  unable_to_save_cuisine: Não foi possível salvar a cozinha
+  no_recipe_registered_in_recipe_type_yet: Nenhuma receita deste tipo foi cadastrada ainda
+  unable_to_save_recipe_type: Não foi possível salvar o tipo de receita

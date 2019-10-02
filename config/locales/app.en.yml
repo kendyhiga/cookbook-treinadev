@@ -41,6 +41,8 @@ en:
   reject: Reject
   pending_recipe_disclaimer: Recipe is pending, waiting for admin approval
   register_new_recipe: Register new recipes
+  register_new_cuisine: Register new cuisine
+  register_new_recipe_type: Register new recipe type
   edit_recipe: Edit recipe
 
   all_recipes: All Recipes
@@ -85,3 +87,8 @@ en:
 
   success: Success
   failure: Failure
+
+  no_recipe_registered_in_cuisine_yet: No recipe registered on this cuisine yet
+  unable_to_save_cuisine: Unable to save cuisine
+  no_recipe_registered_in_recipe_type_yet: No recipe registered on this recipe type yet
+  unable_to_save_recipe_type: Unable to save recipe type
