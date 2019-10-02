@@ -12,7 +12,7 @@ class RecipeTypesController < ApplicationController
     if @recipe_type.save
       redirect_to @recipe_type
     else
-      flash.now[:failure] = 'Não foi possível salvar o tipo de receita'
+      flash.now[:failure] = (t 'unable_to_save_recipe_type')
       render :new
     end
   end
@@ -22,7 +22,7 @@ class RecipeTypesController < ApplicationController
     @recipes = Recipe.where(recipe_type: @recipe_type)
     return unless @recipes.empty?
 
-    flash.now[:failure] = 'Nenhuma receita deste tipo foi cadastrada ainda'
+    flash.now[:failure] = (t 'no_recipe_registered_in_recipe_type_yet')
   end
 
   private

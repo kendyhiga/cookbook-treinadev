@@ -14,7 +14,7 @@ class CuisinesController < ApplicationController
     if @cuisine.save
       redirect_to @cuisine
     else
-      flash.now[:failure] = 'Não foi possível salvar a cozinha'
+      flash.now[:failure] = (t 'unable_to_save_cuisine')
       render :new
     end
   end
@@ -24,7 +24,7 @@ class CuisinesController < ApplicationController
     @recipes = Recipe.where(cuisine: @cuisine)
     return unless @recipes.empty?
 
-    flash.now[:failure] = 'Nenhuma receita desta cozinha foi cadastrada ainda'
+    flash.now[:failure] = (t 'no_recipe_registered_in_cuisine_yet')
   end
 
   private

@@ -1,4 +1,4 @@
-<h1>Cadastrar nova cozinha</h1>
+<h1><%= (t 'register_new_cuisine') %></h1>
 
 <% if @cuisine.errors.any? %>
   <%= flash[:failure] %>
@@ -6,7 +6,7 @@
 
 <%= bootstrap_form_for @cuisine, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4"  do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit 'Cadastrar' %>
+  <%= f.submit (t 'register') %>
 <% end %>
 <br>
 <%= link_to (t 'back'), root_path %>
