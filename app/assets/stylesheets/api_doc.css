@@ -1,0 +1,23 @@
+.api_doc_main {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.89);
+}
+.api_doc_main code {
+  color: rgba(255, 255, 255, 0.89);
+}
+.navbar-api-doc {
+  background-color: #2a2a2a;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.navbar-api-doc #logo {
+  color: rgba(255, 255, 255, 0.89);
+}
+.api_doc_page {
+  margin: 20px;
+}
+.code_snippet {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.89);
+}

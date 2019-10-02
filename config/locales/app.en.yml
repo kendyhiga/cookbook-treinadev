@@ -74,3 +74,14 @@ en:
 
   about_text_intro: This site was made with the purpose of learn, practice and secure the concepts of web programming, as seen on courses, articles and several sources. 
   about_text_disclaimer: Feel free to criticize, suggest improvements or randomly comment! You can find my contacts (Github, Linkedin) on the footer.
+
+  api_doc: API Documentation
+  api_intro: You can also use the following endpoint to communicate with this site
+  api_create_recipe: Create recipe
+  api_show_recipe_type: List recipes by type
+  api_params: 'Send the following parameters:'
+  api_response: 'The response would be:'
+  code: Code
+
+  success: Success
+  failure: Failure

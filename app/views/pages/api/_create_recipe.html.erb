@@ -1,0 +1,45 @@
+<h4><%= t('api_create_recipe') %></h4>
+
+<p><%= (t 'api_params') %></p>
+<pre class='code_snippet'><code><b>GET</b> JSON
+{
+  "recipe": {
+              "user_id": 1,
+              "title": "Bolo de cenoura",
+              "difficulty": "Médio",
+              "recipe_type_id": 5,
+              "cuisine_id": 3,
+              "cook_time": 50,
+              "ingredients": "Farinha, açucar, cenoura",
+              "cook_method": "Cozinhe a cenoura e corte"
+              "image_url": "https://cdn.pixabay.com/photo/2018/02/04/01/29/cake-3128860_960_720.jpg"
+            }
+}
+</code></pre>
+<p><%= (t 'api_response') %></p>
+<pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 201
+{
+    "id": 15,
+    "title": "bolo de cenoura",
+    "difficulty": "Médio",
+    "cook_time": 50,
+    "ingredients": "Farinha, açucar, cenoura",
+    "cook_method": "Cozinhe a cenoura e corte"
+    "recipe_type_id": 5,
+    "cuisine_id": 3,
+    "user_id": 1,
+    "status": "pending",
+    "image_url": "https://cdn.pixabay.com/photo/2018/02/04/01/29/cake-3128860_960_720.jpg"
+}
+</code></pre>
+
+<pre class='code_snippet'><code><b><%= t('failure') %>: </b><%= (t 'code')%> 406
+{
+    "message": "Nao foi possivel salvar a receita",
+    "errors": [
+        "Cuisine é obrigatório(a)",
+        "User é obrigatório(a)",
+        "Título não pode ficar em branco"
+    ]
+}
+</code></pre>

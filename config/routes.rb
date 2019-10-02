@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     get 'search', to: 'users#search'
     get 'about', to: 'pages#about'
+    get 'api_doc', to: 'pages#api_doc'
 
     get 'user/:id/lists', to: 'users#lists', as: 'user_lists'
     delete 'list/:id/recipe/(.:recipe_id)', to: 'recipe_lists#destroy', as: 'remove_recipe_from_list'
