@@ -24,9 +24,11 @@ module Api
       def create
         @recipe = Recipe.new(recipe_params)
         if @recipe.save
-          render json: @recipe, status: :created
+          render json: @recipe, except: %i[created_at updated_at],
+                 status: :created
         else
-          render json: { message: 'Nao foi possivel salvar a receita' },
+          render json: { message: 'Nao foi possivel salvar a receita',
+                         errors: @recipe.errors.full_messages },
                  status: :not_acceptable
         end
       end

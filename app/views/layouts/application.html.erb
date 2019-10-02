@@ -12,14 +12,21 @@
   </head>
 
   <body>
-    <div class='main'>
+    <% unless @api_doc_custom_view %>
+      <div class='main'>
+    <% else %>
+      <div class='api_doc_main'>
+    <% end %>
+    
       <%= render 'layouts/navbar' %>
       
       <div class="row">
 
-        <div class="col-2">
-          <%= render 'layouts/side_menu'%>
-        </div>
+        <% unless @api_doc_custom_view %>
+          <div class="col-2">
+            <%= render 'layouts/side_menu' %>
+          </div>
+        <% end %>
 
         <div class="col">
           <%= flash[:notice] %>

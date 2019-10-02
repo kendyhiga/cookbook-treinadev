@@ -74,3 +74,14 @@ pt-BR:
 
   about_text_intro: Este site foi feito com intuito de aprender, praticar e fixar os conceitos de programação web, vistos em cursos, artigos e materiais diversos.
   about_text_disclaimer: Sinta-se livre para criticar, sugerir melhorias ou opinar aleatóriamente! Você pode encontrar meus contatos (Github, Linkedin) no rodapé.
+
+  api_doc: Documentação da API
+  api_intro: Você também pode utilizar os seguintes Endpoints para se comunicar com este site
+  api_create_recipe: Criar receita
+  api_show_recipe_type: Listar receitas a partir do tipo
+  api_params: 'Envie os seguintes parâmetros:'
+  api_response: 'A resposta virá da seguinte forma:'
+  code: Código
+
+  success: Sucesso
+  failure: Falha

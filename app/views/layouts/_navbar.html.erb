@@ -1,4 +1,8 @@
-<nav class="navbar navbar-light navbar-main">
+<% unless @api_doc_custom_view %>
+  <nav class="navbar navbar-light navbar-main">
+<% else %>
+  <nav class="navbar navbar-light navbar-api-doc">
+<% end %>
   <h1 class="logo"><%= link_to 'Social Recipes', root_path, id: 'logo' %></h1>
   <p>
   <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
@@ -18,9 +22,11 @@
             <%= link_to (t 'my_recipes'), my_recipes_path, class: 'nav-bar-link'%>
             <%= link_to (t 'recipe_register'), new_recipe_path, class: 'nav-bar-link'%>
             <%= link_to (t 'my_profile'), current_user, class: 'nav-bar-link'%>
+            <%= link_to (t 'API doc'), api_doc_path, class: 'nav-bar-link'%>
             <%= link_to (t 'about'), about_path, class: 'nav-bar-link'%>
             <%= link_to (t 'signout'), destroy_user_session_path, method: :delete, class: 'nav-bar-link-right'%>
           <% else %>
+            <%= link_to (t 'api_doc'), api_doc_path, class: 'nav-bar-link'%>
             <%= link_to (t 'about'), about_path, class: 'nav-bar-link'%>
             <%= link_to (t :signin), new_user_session_path, class: 'nav-bar-link-right'%>
           <% end %>
