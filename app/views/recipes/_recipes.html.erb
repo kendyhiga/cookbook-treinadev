@@ -1,9 +1,9 @@
 <% @recipes.each do |recipe| %>
   <div class='row'>
-    <div class='col-3'>
+    <div class='col'>
       <%= image_tag recipe.image_url, class: 'small-recipe-img' if recipe.image_url %>
     </div>
-    <div class='col-3'>
+    <div class='col small_recipe_text'>
       <p><%= link_to recipe.title, recipe, class: 'link' %></p>
       <p><%= "#{(t 'type')}: #{recipe.recipe_type.name}" %></p>
       <p><%= "#{(t 'cuisine')}: #{recipe.cuisine.name}" %></p>

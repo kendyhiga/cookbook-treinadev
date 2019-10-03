@@ -92,3 +92,7 @@ en:
   unable_to_save_cuisine: Unable to save cuisine
   no_recipe_registered_in_recipe_type_yet: No recipe registered on this recipe type yet
   unable_to_save_recipe_type: Unable to save recipe type
+
+  list_registered_successfully: List registered successfully
+  list_registered_unsuccessfully: List registered unsuccessfully
+  
