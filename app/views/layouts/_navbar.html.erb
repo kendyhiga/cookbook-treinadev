@@ -22,6 +22,7 @@
             <%= link_to (t 'my_recipes'), my_recipes_path, class: 'nav-bar-link'%>
             <%= link_to (t 'recipe_register'), new_recipe_path, class: 'nav-bar-link'%>
             <%= link_to (t 'my_profile'), current_user, class: 'nav-bar-link'%>
+            <%= link_to (t 'admin_area'), admin_area_path, class: 'nav-bar-link' if current_user.admin? %>
             <%= link_to (t 'API doc'), api_doc_path, class: 'nav-bar-link'%>
             <%= link_to (t 'about'), about_path, class: 'nav-bar-link'%>
             <%= link_to (t 'signout'), destroy_user_session_path, method: :delete, class: 'nav-bar-link-right'%>

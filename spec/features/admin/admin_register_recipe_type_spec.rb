@@ -5,15 +5,12 @@ require 'rails_helper'
 feature 'Admin register recipe_type' do
   scenario 'sucessfully' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar tipo de receita'
 
     fill_in 'Nome', with: 'Aperitivo'
@@ -25,15 +22,12 @@ feature 'Admin register recipe_type' do
 
   scenario 'and must fill in all fields' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: ''
     click_on 'Cadastrar'
@@ -44,16 +38,13 @@ feature 'Admin register recipe_type' do
 
   scenario 'and the name should be unique' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
     RecipeType.create(name: 'Salada')
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar tipo de receita'
     fill_in 'Nome', with: 'Salada'
     click_on 'Cadastrar'
@@ -64,31 +55,22 @@ feature 'Admin register recipe_type' do
 
   scenario 'and the user cant see the register recipe_type link' do
     # Arrange
-    Cuisine.create(name: 'Brasileira')
-    User.create(email: 'email@email.com', password: '123456')
+    user = create(:user)
 
     # Act
+    login_as user
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
 
     # Assert
-    expect(page).not_to have_content('Cadastrar tipo de receita')
+    expect(page).not_to have_content('Admin Area')
   end
+
   scenario 'and the user cant force to visit the register recipe_type page' do
     # Arrange
-    Cuisine.create(name: 'Brasileira')
-    User.create(email: 'email@email.com', password: '123456')
+    user = create(:user)
 
     # Act
-    visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
+    login_as user
     visit new_recipe_type_path
 
     # Assert

@@ -11,10 +11,10 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     if @list.save
-      flash[:notice] = 'Lista cadastrada com sucesso'
+      flash[:notice] = (t 'list_registered_successfully')
       redirect_to @list
     else
-      flash.now[:failure] = 'Não foi possível salvar a lista'
+      flash.now[:failure] = (t 'list_registered_unsuccessfully')
       render :new
     end
   end

@@ -5,15 +5,12 @@ require 'rails_helper'
 feature 'Admin register cuisine' do
   scenario 'sucessfully' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar cozinha'
     fill_in 'Nome', with: 'Brasileira'
     click_on 'Cadastrar'
@@ -24,15 +21,12 @@ feature 'Admin register cuisine' do
 
   scenario 'and must fill in all fields' do
     # Arrange
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar cozinha'
     fill_in 'Nome', with: ''
     click_on 'Cadastrar'
@@ -44,15 +38,12 @@ feature 'Admin register cuisine' do
   scenario 'and the name should be unique' do
     # Arrange
     Cuisine.create(name: 'Brasileira')
-    User.create(email: 'alan@email.com', password: '123456', admin: true)
+    admin = create(:user, admin: true)
 
     # Act
+    login_as admin
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'alan@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
+    click_on 'Admin Area'
     click_on 'Cadastrar cozinha'
     fill_in 'Nome', with: 'Brasileira'
     click_on 'Cadastrar'
@@ -61,34 +52,24 @@ feature 'Admin register cuisine' do
     expect(page).to have_content('Não foi possível salvar a cozinha')
   end
 
-  scenario 'and the guest user cant see the register cuisine link' do
+  scenario 'and the user cant see the register cuisine link' do
     # Arrange
-    Cuisine.create(name: 'Brasileira')
-    User.create(email: 'email@email.com', password: '123456')
+    user = create(:user)
 
     # Act
+    login_as user
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
-    click_on 'Meu perfil'
 
     # Assert
-    expect(page).not_to have_content('Cadastrar cozinha')
+    expect(page).not_to have_content('Admin Area')
   end
 
-  scenario 'and the guest user cant force to visit the register cuisine page' do
+  scenario 'and the user cant force to visit the register cuisine page' do
     # Arrange
-    Cuisine.create(name: 'Brasileira')
-    User.create(email: 'email@email.com', password: '123456')
+    user = create(:user)
 
     # Act
-    visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with: 'email@email.com'
-    fill_in 'Senha', with: '123456'
-    click_on 'Entrar na sua conta'
+    login_as user
     visit new_cuisine_path
 
     # Assert
