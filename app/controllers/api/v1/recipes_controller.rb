@@ -8,7 +8,7 @@ module Api
         choose_filter(params[:status])
 
         if @recipes
-          render json: @recipes, status: :ok
+          render json: @recipes, only: %i[id title], status: :ok
         else
           render json: { message: 'Status invalido' }, status: :not_found
         end

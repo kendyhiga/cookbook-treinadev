@@ -80,7 +80,12 @@ en:
   api_doc: API Documentation
   api_intro: You can also use the following endpoint to communicate with this site
   api_create_recipe: Create recipe
-  api_show_recipe_type: List recipes by type
+  api_delete_recipe: Delete recipe
+  api_create_recipe_type: Create recipe type
+  api_show_all_recipes: Show all recipes
+  api_show_recipe_details: Show recipe details
+  api_update_recipe_status: Update recipe status
+  api_show_recipes_by_recipe_type: List recipes by type
   api_params: 'Send the following parameters:'
   api_response: 'The response would be:'
   code: Code

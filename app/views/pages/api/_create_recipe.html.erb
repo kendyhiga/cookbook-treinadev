@@ -1,7 +1,6 @@
-<h4><%= t('api_create_recipe') %></h4>
-
 <p><%= (t 'api_params') %></p>
-<pre class='code_snippet'><code><b>GET</b> JSON
+<pre class='code_snippet'><code><b>POST</b> JSON
+http://cookbook-practice.herokuapp.com/api/v1/recipes
 {
   "recipe": {
               "user_id": 1,
@@ -16,6 +15,7 @@
             }
 }
 </code></pre>
+
 <p><%= (t 'api_response') %></p>
 <pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 201
 {

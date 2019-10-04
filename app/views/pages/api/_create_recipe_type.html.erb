@@ -1,0 +1,24 @@
+<p><%= (t 'api_params') %></p>
+<pre class='code_snippet'><code><b>POST</b>JSON
+http://cookbook-practice.herokuapp.com/api/v1/recipe_types
+{
+      "recipe_type":
+                    {
+                     "name":" Portuguesa"
+                    }
+}
+</code></pre>
+
+<p><%= (t 'api_response') %></p>
+<pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 201
+{
+    "id": 7,
+    "name": "Portuguesa"
+}
+</code></pre>
+
+<pre class='code_snippet'><code><b><%= t('failure') %>: </b><%= (t 'code')%> 406
+{
+    "message": "Não foi possível salvar o tipo de receita"
+}
+</code></pre>

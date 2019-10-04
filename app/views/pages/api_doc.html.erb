@@ -1,12 +1,56 @@
 <div class='api_doc_page'>
+  <h3>Menu</h3>
+
   <h2><%= (t 'api_doc') %></h2>
 
   <h5><p><%= (t 'api_intro') %></p></h5>
 
-  <br>
-  <%= render 'pages/api/create_recipe' %>
-<br>
-  <h4><%= t('api_show_recipe_type') %></h4>
-  <%= render 'pages/api/show_recipe_type' %>
+  <div class='menu'>
+    <ul>
+      <li><a href='#show_all_recipes'><%= (t 'api_show_all_recipes') %></a></li>
+      <li><a href='#show_recipe_details'><%= (t 'api_show_recipe_details') %></a></li>
+      <li><a href='#create_recipe'><%= (t 'api_create_recipe') %></a></li>
+      <li><a href='#delete_recipe'><%= (t 'api_delete_recipe') %></a></li>
+      <li><a href='#update_recipe_status'><%= (t 'api_update_recipe_status') %></a></li>
+      <li><a href='#create_recipe_type'><%= (t 'api_create_recipe_type') %></a></li>
+      <li><a href='#show_recipe_by_type'><%= (t 'api_show_recipes_by_recipe_type') %></a></li>
+    </ul>
+  </div>
 
+  <br>
+  <h4 id='show_all_recipes'><%= (t 'api_show_all_recipes') %></h4>
+  <%= render 'pages/api/show_all_recipes' %>
+
+  <br>
+  <h4 id='show_recipe_details'><%= (t 'api_show_recipe_details') %></h4>
+  <%= render 'pages/api/show_recipe_details' %>
+
+  <br>
+  <h4 id='create_recipe'><%= (t 'api_create_recipe') %></h4>
+  <%= render 'pages/api/create_recipe' %>
+
+  <br>
+  <h4 id='delete_recipe'><%= (t 'api_delete_recipe') %></h4>
+  <%= render 'pages/api/delete_recipe' %>
+
+  <br>
+  <h4 id='update_recipe_status'><%= (t 'api_update_recipe_status') %></h4>
+  <%= render 'pages/api/update_recipe_status' %>
+
+  <br>
+  <h4 id='create_recipe_type'><%= (t 'api_create_recipe_type') %></h4>
+  <%= render 'pages/api/create_recipe_type' %>
+
+  <br>
+  <h4 id='show_recipe_by_type'><%= (t 'api_show_recipes_by_recipe_type') %></h4>
+  <%= render 'pages/api/show_recipes_by_recipe_type' %>
+  
+
+
+
+  <a class='top' href='#'><%= (t 'back_to_top') %></a>
 </div>
+
+
+<br>
+<br>
