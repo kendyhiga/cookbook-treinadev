@@ -1,0 +1,28 @@
+<p><%= (t 'api_params') %></p>
+<pre class='code_snippet'><code><b>POST</b>
+http://cookbook-practice.herokuapp.com/api/v1/accept/recipe/:id
+http://cookbook-practice.herokuapp.com/api/v1/reject/recipe/:id
+</code></pre>
+
+<p><%= (t 'api_response') %></p>
+<pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 201
+{
+    "id": 2,
+    "status": "accepted",
+    "recipe_type_id": 2,
+    "cuisine_id": 3,
+    "user_id": 3,
+    "title": "Bolo de Laranja",
+    "difficulty": "Fácil",
+    "cook_time": 45,
+    "ingredients": "Farinha, açucar, laranja",
+    "cook_method": "Cozinhe a laranja, corte em pedaços pequenos, misture com o restante dos ingredientes",
+    "image_url": "https://cdn.pixabay.com/photo/2019/01/06/13/37/kitchen-3917004_960_720.jpg"
+}
+</code></pre>
+
+<pre class='code_snippet'><code><b><%= t('failure') %>: </b><%= (t 'code')%> 404
+{
+    "message": "Receita não encontrada"
+}
+</code></pre>

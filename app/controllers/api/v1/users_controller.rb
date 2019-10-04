@@ -7,7 +7,7 @@ module Api
       def reject_recipe
         @recipe = Recipe.find(params[:id])
         @recipe.rejected!
-        render json: @recipe, status: :ok
+        render json: @recipe, except: %i[created_at updated_at], status: :ok
       rescue ActiveRecord::RecordNotFound
         render json: { message: 'Receita não encontrada' }, status: :not_found
       end
@@ -15,7 +15,7 @@ module Api
       def accept_recipe
         @recipe = Recipe.find(params[:id])
         @recipe.accepted!
-        render json: @recipe, status: :ok
+        render json: @recipe, except: %i[created_at updated_at], status: :ok
       rescue ActiveRecord::RecordNotFound
         render json: { message: 'Receita não encontrada' }, status: :not_found
       end

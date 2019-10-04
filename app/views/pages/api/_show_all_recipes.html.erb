@@ -1,0 +1,47 @@
+<p><%= (t 'api_params') %></p>
+<pre class='code_snippet'><code><b>GET</b>
+http://cookbook-practice.herokuapp.com/api/v1/recipes
+http://cookbook-practice.herokuapp.com/api/v1/recipes?status=accepted
+http://cookbook-practice.herokuapp.com/api/v1/recipes?status=rejected
+http://cookbook-practice.herokuapp.com/api/v1/recipes?status=pending
+</code></pre>
+
+<p><%= (t 'api_response') %></p>
+<pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 200
+[
+    {
+        "id": 1,
+        "title": "Bolo de Cenoura"
+    },
+    {
+        "id": 2,
+        "title": "Bolo de Chocolate"
+    },
+    {
+        "id": 4,
+        "title": "Petit Gateau"
+    },
+    {
+        "id": 5,
+        "title": "Coxinha"
+    },
+    {
+        "id": 6,
+        "title": "Biscoito de Gengibre"
+    },
+    {
+        "id": 7,
+        "title": "Frango frito apimentado"
+    },
+    {
+        "id": 3,
+        "title": "Bolo de Laranja"
+    }
+]
+</code></pre>
+
+<pre class='code_snippet'><code><b><%= t('failure') %>: </b><%= (t 'code')%> 404
+{
+    "message": "Status invalido"
+}
+</code></pre>

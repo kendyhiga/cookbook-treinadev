@@ -8,7 +8,8 @@ module Api
         @recipe_type = RecipeType.find(params[:id])
         render json: @recipe_type, status: :ok, include: ['recipes']
       rescue ActiveRecord::RecordNotFound
-        render json: { message: 'Tipo de receita não encontrada', status: 404 }
+        render json: { message: 'Tipo de receita não encontrada' },
+               status: :not_found
       end
 
       def create

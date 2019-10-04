@@ -30,6 +30,6 @@ describe 'List recipes by recipe type' do
     json_recipe_type = JSON.parse(response.body, symbolize_names: true)
 
     expect(json_recipe_type[:message]).to eq 'Tipo de receita não encontrada'
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status(404)
   end
 end

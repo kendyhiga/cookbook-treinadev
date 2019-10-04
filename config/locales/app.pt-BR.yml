@@ -80,7 +80,12 @@ pt-BR:
   api_doc: Documentação da API
   api_intro: Você também pode utilizar os seguintes Endpoints para se comunicar com este site
   api_create_recipe: Criar receita
-  api_show_recipe_type: Listar receitas a partir do tipo
+  api_delete_recipe: Deletar receita
+  api_show_all_recipes: Listar todas as receitas
+  api_show_recipe_details: Ver detalhes da receita
+  api_create_recipe_type: Criar tipo de receita
+  api_update_recipe_status: Atualizar status da receita
+  api_show_recipes_by_recipe_type: Listar receitas a partir do tipo
   api_params: 'Envie os seguintes parâmetros:'
   api_response: 'A resposta virá da seguinte forma:'
   code: Código

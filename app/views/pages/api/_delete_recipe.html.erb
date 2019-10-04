@@ -1,0 +1,29 @@
+<p><%= (t 'api_params') %></p>
+<pre class='code_snippet'><code><b>DELETE</b>
+http://cookbook-practice.herokuapp.com/api/v1/recipes/:id
+</code></pre>
+
+<p><%= (t 'api_response') %></p>
+<pre class='code_snippet'><code><b><%= t('success') %>:</b><%= (t 'code')%> 200
+{
+    "id": 1,
+    "title": "Bolo de Cenoura",
+    "difficulty": "Médio",
+    "cook_time": 50,
+    "created_at": "2019-09-29T22:41:28.439Z",
+    "updated_at": "2019-09-29T22:41:28.439Z",
+    "ingredients": "Farinha, açucar, cenoura",
+    "cook_method": "Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes",
+    "recipe_type_id": 1,
+    "cuisine_id": 1,
+    "user_id": 2,
+    "status": "accepted",
+    "image_url": "https://cdn.pixabay.com/photo/2018/05/20/15/45/cake-3416079_960_720.jpg"
+}
+</code></pre>
+
+<pre class='code_snippet'><code><b><%= t('failure') %>: </b><%= (t 'code')%> 404
+{
+    "message": "Receita nao encontrada"
+}
+</code></pre>
