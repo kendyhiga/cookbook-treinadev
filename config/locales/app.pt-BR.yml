@@ -89,6 +89,7 @@ pt-BR:
   api_params: 'Envie os seguintes parâmetros:'
   api_response: 'A resposta virá da seguinte forma:'
   code: Código
+  back_to_top: Voltar ao topo
 
   success: Sucesso
   failure: Falha

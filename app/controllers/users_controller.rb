@@ -19,16 +19,6 @@ class UsersController < ApplicationController
     flash.now[:failure] = 'Você não tem nenhuma lista cadastrada em nosso site'
   end
 
-  def search
-    @result = []
-    if params[:parameter] == ''
-      flash.now[:failure] = 'Preencha o campo de pesquisa'
-    elsif params[:parameter]
-      search_recipe
-    end
-    render :search
-  end
-
   def reject_recipe
     @recipe = Recipe.find(params[:id])
     @recipe.rejected!
@@ -39,16 +29,5 @@ class UsersController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.accepted!
     redirect_to pending_recipes_path
-  end
-
-  private
-
-  def search_recipe
-    @recipes = Recipe.where('title LIKE ?', "%#{params[:parameter]}%")
-    @cuisines = Cuisine.where('name LIKE ?', "%#{params[:parameter]}%")
-    @recipe_types = RecipeType.where('name LIKE ?', "%#{params[:parameter]}%")
-    return unless @recipes.empty? && params[:parameter]
-
-    flash.now[:failure] = 'Não encontramos nada'
   end
 end

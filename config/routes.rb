@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :recipe_lists, only: %i[create]
     resources :users, only: %i[show]
 
-    get 'search', to: 'users#search'
+    get 'search', to: 'pages#search'
     get 'admin_area', to: 'users#admin_area'
     get 'about', to: 'pages#about'
     get 'api_doc', to: 'pages#api_doc'

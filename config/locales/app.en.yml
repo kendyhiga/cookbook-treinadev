@@ -89,6 +89,7 @@ en:
   api_params: 'Send the following parameters:'
   api_response: 'The response would be:'
   code: Code
+  back_to_top: Back to top
 
   success: Success
   failure: Failure
