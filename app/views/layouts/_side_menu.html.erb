@@ -1,9 +1,9 @@
 <ul class="nav flex-column">
   <li class="nav-item">
-    <p class="side-menu-topic"><%= link_to (t 'all_recipes_from_site'), all_recipes_path, class: 'link' %></p>
-    <p class="side-menu-topic"><%= link_to (t 'search_recipes_from_site'), search_path, class: 'link' %></p>
+    <p class="side-menu-topic"><%= link_to (t 'all_recipes_from_site'), all_recipes_path, class: 'btn-block side-menu-link' %></p>
+    <p class="side-menu-topic"><%= link_to (t 'search_recipes_from_site'), search_path, class: 'btn-block side-menu-link' %></p>
     <% if user_signed_in? && current_user.admin? %>
-      <p class="side-menu-topic"><%= link_to (t 'pending_recipes'), pending_recipes_path, class: 'link' %></p>
+      <p class="side-menu-topic"><%= link_to (t 'pending_recipes'), pending_recipes_path, class: 'btn-block side-menu-link' %></p>
     <% end %>
   </li>
   <li class="nav-item">
@@ -11,7 +11,7 @@
     <ul class="nav flex-column">
       <li class="nav-item">
         <% RecipeType.all.each do |recipe_type| %>
-          <p class="side-menu-link"><%= link_to recipe_type.name, recipe_type, class: 'link' %></p>
+          <p class="side-menu-label"><%= link_to recipe_type.name, recipe_type, class: 'btn-block side-menu-link' %></p>
         <% end %>
       </li>
     </ul>
@@ -21,7 +21,7 @@
     <ul class="nav flex-column">
       <li class="nav-item">
         <% Cuisine.all.each do |cuisine| %>
-          <p class="side-menu-link"><%= link_to cuisine.name, cuisine, class: 'link' %></p>
+          <p class="side-menu-label"><%= link_to cuisine.name, cuisine, class: 'btn-block side-menu-link' %></p>
         <% end %>
       </li>
     </ul>
