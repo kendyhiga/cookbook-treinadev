@@ -12,7 +12,7 @@ AllCops:
    - 'spec/rails_helper.rb'
 
 Metrics/BlockLength:
- ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+ ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let', 'before']
 
 AsciiComments:
  Enabled: false

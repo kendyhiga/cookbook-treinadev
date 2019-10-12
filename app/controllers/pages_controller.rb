@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def search
     @result = []
     if params[:parameter] == ''
-      flash.now[:failure] = 'Preencha o campo de pesquisa'
+      flash.now[:failure] = (t 'fill_the_search_field')
     elsif params[:parameter]
       search_recipe(params[:parameter].downcase)
     end
@@ -21,11 +21,11 @@ class PagesController < ApplicationController
   private
 
   def search_recipe(parameter)
-    @recipes = Recipe.where('LOWER(title) LIKE ?', "%#{parameter}%")
+    @recipes = Recipe.accepted.where('LOWER(title) LIKE ?', "%#{parameter}%")
     @cuisines = Cuisine.where('LOWER(name) LIKE ?', "%#{parameter}%")
     @recipe_types = RecipeType.where('LOWER(name) LIKE ?', "%#{parameter}%")
     return unless @recipes.empty? && parameter
 
-    flash.now[:failure] = 'Não encontramos nada'
+    flash.now[:failure] = (t 'nothing_was_found')
   end
 end

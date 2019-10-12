@@ -101,3 +101,6 @@ pt-BR:
 
   list_registered_successfully: Lista cadastrada com sucesso
   list_registered_unsuccessfully: Não foi possível salvar a lista
+
+  fill_the_search_field: Preencha o campo de pesquisa
+  nothing_was_found: Não encontramos nada

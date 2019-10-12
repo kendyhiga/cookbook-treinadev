@@ -8,9 +8,11 @@ feature 'Visitor search for recipes' do
     recipe_type = create(:recipe_type, name: 'Bolo')
     cuisine = create(:cuisine)
     create(:recipe, title: 'Bolo de cenoura', user: user,
-                    recipe_type: recipe_type, cuisine: cuisine)
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'accepted')
     create(:recipe, title: 'Pão de Queijo', user: user,
-                    recipe_type: recipe_type, cuisine: cuisine)
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'accepted')
   end
 
   scenario 'sucessfully by its exact name' do
@@ -51,9 +53,11 @@ feature 'Visitor search for recipes' do
     cuisine = Cuisine.create(name: 'Brasileira')
     user = User.create(email: 'alan@email.com', password: '123456')
     create(:recipe, title: 'Bolo de Fubá', user: user,
-                    recipe_type: recipe_type, cuisine: cuisine)
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'accepted')
     create(:recipe, title: 'Bolo de Chocolate', user: user,
-                    recipe_type: recipe_type, cuisine: cuisine)
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'accepted')
 
     visit root_path
     click_on 'Pesquisar no site'
@@ -76,5 +80,28 @@ feature 'Visitor search for recipes' do
     expect(page).to have_css('h3', text: 'Receitas encontradas')
     expect(page).to have_css('p', text: 'Pão de Queijo')
     expect(page).not_to have_content('Bolo de cenoura')
+  end
+
+  scenario 'and it only returns accepted recipes' do
+    recipe_type = RecipeType.create(name: 'Sobremesa')
+    cuisine = Cuisine.create(name: 'Brasileira')
+    user = User.create(email: 'alan@email.com', password: '123456')
+    create(:recipe, title: 'Bolo de Fubá', user: user,
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'accepted')
+    create(:recipe, title: 'Bolo de Chocolate', user: user,
+                    recipe_type: recipe_type, cuisine: cuisine,
+                    status: 'pending')
+
+    visit root_path
+    click_on 'Pesquisar no site'
+    fill_in 'Título', with: 'Bolo'
+    click_on 'Pesquisar'
+
+    expect(page).to have_content('Receitas encontradas')
+    expect(page).to have_css('p', text: 'Bolo de cenoura')
+    expect(page).to have_css('p', text: 'Bolo de Fubá')
+    expect(page).not_to have_css('p', text: 'Bolo de Chocolate')
+    expect(page).not_to have_content('Pão de Queijo')
   end
 end
