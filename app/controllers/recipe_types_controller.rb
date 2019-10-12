@@ -19,7 +19,7 @@ class RecipeTypesController < ApplicationController
 
   def show
     @recipe_type = RecipeType.find(params[:id])
-    @recipes = Recipe.where(recipe_type: @recipe_type)
+    @recipes = Recipe.accepted.where(recipe_type: @recipe_type)
     return unless @recipes.empty?
 
     flash.now[:failure] = (t 'no_recipe_registered_in_recipe_type_yet')

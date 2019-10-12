@@ -21,7 +21,7 @@ class CuisinesController < ApplicationController
 
   def show
     @cuisine = Cuisine.find(params[:id])
-    @recipes = Recipe.where(cuisine: @cuisine)
+    @recipes = Recipe.accepted.where(cuisine: @cuisine)
     return unless @recipes.empty?
 
     flash.now[:failure] = (t 'no_recipe_registered_in_cuisine_yet')
