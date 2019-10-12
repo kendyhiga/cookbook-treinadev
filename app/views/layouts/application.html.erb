@@ -12,12 +12,7 @@
   </head>
 
   <body>
-    <% unless @api_doc_custom_view %>
-      <div class='main'>
-    <% else %>
-      <div class='api_doc_main'>
-    <% end %>
-    
+    <div class=<%= @api_doc_custom_view ? 'api_doc_main' : 'main' %>>    
       <%= render 'layouts/navbar' %>
       
       <div class="row">
