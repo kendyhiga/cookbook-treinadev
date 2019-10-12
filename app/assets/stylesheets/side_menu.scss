@@ -1,8 +1,25 @@
 .side-menu-topic {
-  margin-left: 10px;
+  font-size: 23px;
+  margin-left: 0;
   margin-top: 15px;
 }
 
-.nav.side-menu-link {
+.nav.side-menu-label {
   margin-left: 20px;
+}
+
+.side-menu-link{
+  border-radius: 20px;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  background-color: white;
+  box-shadow: 8px 8px 5px grey;
+  color: black;
+  font-size: 16px;
+  padding: 9px;
+}
+a:hover.side-menu-link{
+  transition: background-color 0.5s ease;
+  background-color: rgb(218, 52, 31);
+  color: white;
 }
