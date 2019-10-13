@@ -4,6 +4,8 @@
 class CuisinesController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
 
+  def index; end
+
   def new
     redirect_to root_path unless user_signed_in? && current_user.admin
     @cuisine = Cuisine.new

@@ -1,0 +1,25 @@
+<h3><%= "#{(t 'manage_recipe_types')}:" %></h3>
+<br>
+
+<%= link_to (t 'register_recipe_type'), new_recipe_type_path %>
+
+<br>
+<br>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th><%= (t 'name') %></th>
+      <th><%= (t 'actions') %></th>
+    </tr>
+  </thead>
+  <% @recipe_types.each do |recipe_type| %>
+    <tr>
+      <div id='<%= recipe_type.name %>'>
+        <td><%= link_to recipe_type.name, recipe_type %></td>
+        <td><%= link_to (t 'edit'), edit_recipe_type_path(recipe_type.id) %></td>
+        <td><%= link_to (t 'delete'), recipe_type_path(recipe_type.id), method: :delete, data: { confirm: (t 'are_you_sure?') } %></td>
+      </div>
+    </tr>
+  <% end %>
+</table>
