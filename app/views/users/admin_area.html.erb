@@ -2,7 +2,7 @@
   <% if current_user.admin %>
     <hr>
     <h3><%= "#{(t 'admin_only')}:" %></h3>
-    <p><%= link_to (t 'register_recipe_type'), new_recipe_type_path %></p>
+    <p><%= link_to (t 'manage_recipe_types'), recipe_types_path %></p>
     <p><%= link_to (t 'register_cuisine'), new_cuisine_path %></p>
     <hr>
   <% end %>

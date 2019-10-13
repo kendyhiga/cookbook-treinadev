@@ -32,6 +32,7 @@ pt-BR:
   submit: Enviar
   back: Voltar
   edit: Editar
+  delete: Excluir
 
   last_recipes: Ultimas Receitas
   add_recipe_to_list: Adicionar para a minha lista
@@ -104,3 +105,7 @@ pt-BR:
 
   fill_the_search_field: Preencha o campo de pesquisa
   nothing_was_found: Não encontramos nada
+  manage_recipe_types: Gerenciar tipos de receitas
+  manage_cuisines: Gerenciar cozinhas
+  are_you_sure?: Você tem certeza?
+  actions: Ações

@@ -32,6 +32,7 @@ en:
   submit: Submit
   back: Back
   edit: Edit
+  delete: Delete
 
   last_recipes: Last recipes
   add_recipe_to_list: Add recipe to list
@@ -104,3 +105,7 @@ en:
   
   fill_the_search_field: Fill in the search field
   nothing_was_found: Nothing was found
+  manage_recipe_types: Manage recipe types
+  manage_cuisines: Manage cuisines
+  are_you_sure?: Are you sure?
+  actions: Actions
