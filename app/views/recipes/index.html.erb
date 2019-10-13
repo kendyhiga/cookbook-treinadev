@@ -1,11 +1,17 @@
-<%= render 'carousel' %>
+<div class="parallax_first">
 
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='column-6'>
-      <h2><%= (t 'last_recipes') %></h2>
+  <%= render 'carousel' %>
 
-      <%= render 'recipes' %>
+  <div class='container-fluid'>
+    <div class='row'>
+      <div class='column-6'>
+        <h2 class='text-white'><%= (t 'last_recipes') %></h2>
+
+        <%= render 'recipes' %>
+      </div>
     </div>
   </div>
+</div>
+<div class="parallax_second">
+
 </div>
