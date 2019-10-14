@@ -1,12 +1,3 @@
 <h1><%= (t 'register_new_recipe_type') %></h1>
 
-<% if @recipe_type.errors.any? %>
-  <%= flash[:failure] %>
-<% end %>
-
-<%= bootstrap_form_for @recipe_type, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4" do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit (t 'register') %>
-<% end %>
-<br>
-<%= link_to (t 'back'), root_path %>
+<%= render 'form' %>

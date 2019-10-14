@@ -1,0 +1,10 @@
+<% if @cuisine.errors.any? %>
+  <%= flash[:failure] %>
+<% end %>
+
+<%= bootstrap_form_for @cuisine, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4"  do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit (t 'register') %>
+<% end %>
+<br>
+<%= link_to (t 'back'), root_path %>
