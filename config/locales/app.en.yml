@@ -43,6 +43,7 @@ en:
   pending_recipe_disclaimer: Recipe is pending, waiting for admin approval
   register_new_recipe: Register new recipes
   register_new_cuisine: Register new cuisine
+  edit_cuisine: Edit cuisine
   register_new_recipe_type: Register new recipe type
   edit_recipe: Edit recipe
 

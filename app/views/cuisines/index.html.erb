@@ -1,0 +1,25 @@
+<h3><%= "#{(t 'manage_cuisines')}:" %></h3>
+<br>
+
+<%= link_to (t 'register_cuisine'), new_cuisine_path %>
+
+<br>
+<br>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th><%= (t 'name') %></th>
+      <th><%= (t 'actions') %></th>
+    </tr>
+  </thead>
+  <% @cuisines.each do |cuisine| %>
+    <tr>
+      <div id='<%= cuisine.name %>'>
+        <td><%= link_to cuisine.name, cuisine %></td>
+        <td><%= link_to (t 'edit'), edit_cuisine_path(cuisine.id) %></td>
+        <td><%= link_to (t 'delete'), cuisine_path(cuisine.id), method: :delete, data: { confirm: (t 'are_you_sure?') } %></td>
+      </div>
+    </tr>
+  <% end %>
+</table>

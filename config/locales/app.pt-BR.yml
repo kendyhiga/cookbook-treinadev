@@ -43,6 +43,7 @@ pt-BR:
   pending_recipe_disclaimer: Receita esta pendente, aguardando aprovação dos administradores
   register_new_recipe: Cadastrar nova receita
   register_new_cuisine: Cadastrar nova cozinha
+  edit_cuisine: Editar cozinha
   register_new_recipe_type: Cadastrar novo tipo de receita
   edit_recipe: Editar a receita
 
