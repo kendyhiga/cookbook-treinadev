@@ -2,7 +2,7 @@
 
 # Cuisine class, to classify the recipes
 class Cuisine < ApplicationRecord
-  has_many :recipes, dependent: :restrict_with_exception
+  has_many :recipes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

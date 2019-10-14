@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   belongs_to :recipe_type
   belongs_to :cuisine
   belongs_to :user
-  has_many :recipe_lists, dependent: :restrict_with_exception
+  has_many :recipe_lists, dependent: :destroy
   has_many :lists, through: :recipe_lists
   has_one_attached :image
 
