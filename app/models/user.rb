@@ -6,8 +6,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :recipes, dependent: :restrict_with_exception
-  has_many :lists, dependent: :restrict_with_exception
+  has_many :recipes, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   def can_edit?(recipe = nil)
     return false if recipe.nil?
