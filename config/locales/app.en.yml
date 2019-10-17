@@ -110,3 +110,5 @@ en:
   manage_cuisines: Manage cuisines
   are_you_sure?: Are you sure?
   actions: Actions
+
+  recipes_needs_approval_message: All recipes are sent to a "pending recipes section", so that an Admin can approve or reject it, before it gets published
