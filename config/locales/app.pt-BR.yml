@@ -110,3 +110,5 @@ pt-BR:
   manage_cuisines: Gerenciar cozinhas
   are_you_sure?: Você tem certeza?
   actions: Ações
+
+  recipes_needs_approval_message: Todas as receitas enviadas vão para uma "seção de receitas pendentes", para que um Admin possa aprovar ou recusa-la, antes da receita ser publicada
