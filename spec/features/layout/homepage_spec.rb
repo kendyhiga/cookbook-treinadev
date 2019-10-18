@@ -6,7 +6,7 @@ feature 'Visitor visit homepage' do
   scenario 'successfully' do
     visit root_path
 
-    expect(page).to have_css('h1', text: 'Social Recipes')
+    expect(page).to have_css('h3', text: 'Social Recipes')
   end
 
   scenario 'and view recipe' do
