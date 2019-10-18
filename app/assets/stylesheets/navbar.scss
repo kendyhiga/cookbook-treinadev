@@ -1,17 +1,29 @@
 #logo{
   color: rgb(218, 52, 31);
 }
+#logo:hover{
+  transition: all 1s ease;
+  color: white;
+  background: red;
+}
+
+
+
+.navbar{
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
 .navbar-main{
   background-color: rgb(255, 227, 102);
   box-shadow: 8px 8px 5px grey;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
 }
 
 .nav-bar-link{
   transition: background-color 0.5s ease;
   background-color: white;
-  box-shadow: 8px 8px 5px grey;
   color: black;
   font-size: 16px;
   padding: 9px;
@@ -20,14 +32,4 @@ a:hover.nav-bar-link{
   transition: background-color 0.5s ease;
   background-color: rgb(218, 52, 31);
   color: white;
-}
-
-.nb-left{
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.nb-right{
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
 }

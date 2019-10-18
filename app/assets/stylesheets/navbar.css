@@ -1,16 +1,24 @@
 #logo {
   color: #da341f;
 }
+#logo:hover {
+  transition: all 1s ease;
+  color: white;
+  background: red;
+}
+.navbar {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
 .navbar-main {
   background-color: #ffe366;
   box-shadow: 8px 8px 5px grey;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
 }
 .nav-bar-link {
   transition: background-color 0.5s ease;
   background-color: white;
-  box-shadow: 8px 8px 5px grey;
   color: black;
   font-size: 16px;
   padding: 9px;
@@ -19,12 +27,4 @@ a:hover.nav-bar-link {
   transition: background-color 0.5s ease;
   background-color: #da341f;
   color: white;
-}
-.nb-left {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-.nb-right {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
