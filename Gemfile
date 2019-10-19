@@ -41,6 +41,8 @@ gem 'travis'
 
 gem 'bootstrap_form', '~> 4.0'
 
+gem 'attractor'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -52,6 +54,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry'
 
   gem 'rspec-rails', '~> 3.8'
 
