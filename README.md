@@ -32,4 +32,5 @@
 - [x] **Added Bootstrap Form gem**
 - [x] **Changed database from SQLite to PostgreSQL**
 - [x] **Deploy to Heroku**
+- [x] **Added Attractor gem**
 - [ ] **Added WebMock gem**
