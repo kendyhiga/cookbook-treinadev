@@ -8,8 +8,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
-    @list.user = current_user
+    @list = current_user.lists.build(list_params)
     if @list.save
       flash[:notice] = (t 'list_registered_successfully')
       redirect_to @list
